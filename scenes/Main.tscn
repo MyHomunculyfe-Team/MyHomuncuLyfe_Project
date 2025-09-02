@@ -1,0 +1,183 @@
+[gd_scene load_steps=9 format=3 uid="uid://fbwwlhuwyjnf"]
+
+[ext_resource type="Texture2D" uid="uid://bx8h8bd8nwc3y" path="res://assets/Homunc.png" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://ov71pqi3oyu6" path="res://scripts/Main.gd" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://gb15o2hwev3e" path="res://scripts/Pet.gd" id="3_0bbpv"]
+[ext_resource type="Texture2D" uid="uid://cnrgusyty3ls1" path="res://assets/icons/Job.png" id="4_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://c8oaur8ftj0p" path="res://assets/icons/Shop.png" id="5_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://c6htte1fk0qkk" path="res://assets/icons/Care.png" id="6_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://pmfflthln4tb" path="res://assets/icons/Items.png" id="7_lhr70"]
+[ext_resource type="Texture2D" uid="uid://b41pe7x35b1a6" path="res://assets/icons/Settings.png" id="8_jlsqs"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_rvslj")
+
+[node name="Pet" type="Sprite2D" parent="."]
+position = Vector2(721, 398)
+scale = Vector2(0.689583, 0.660156)
+texture = ExtResource("1_elqb8")
+script = ExtResource("3_0bbpv")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+offset_right = 543.0
+offset_bottom = 151.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+
+[node name="PetNameLabel" type="Label" parent="UI/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ramonculus
+"
+
+[node name="Row_Happiness" type="HBoxContainer" parent="UI/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lbl_Happiness" type="Label" parent="UI/PanelContainer/VBox/Row_Happiness"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Happiness"
+
+[node name="HappinessBar" type="ProgressBar" parent="UI/PanelContainer/VBox/Row_Happiness"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 75.0
+
+[node name="Row_Hunger" type="HBoxContainer" parent="UI/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lbl_Hunger" type="Label" parent="UI/PanelContainer/VBox/Row_Hunger"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hunger"
+
+[node name="HungerBar" type="ProgressBar" parent="UI/PanelContainer/VBox/Row_Hunger"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="Row_Hygiene" type="HBoxContainer" parent="UI/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lbl_Hygiene" type="Label" parent="UI/PanelContainer/VBox/Row_Hygiene"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hygiene"
+
+[node name="HygieneBar" type="ProgressBar" parent="UI/PanelContainer/VBox/Row_Hygiene"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="NavPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(120, 420)
+anchors_preset = -1
+anchor_top = 0.292
+anchor_right = 0.035
+anchor_bottom = 0.347
+offset_left = 5.0
+offset_top = 29.784
+offset_right = 92.68
+offset_bottom = 414.144
+
+[node name="Buttons" type="VBoxContainer" parent="UI/NavPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Btn_Job" type="Button" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("4_nxtc6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Job" type="Label" parent="UI/NavPanel/Buttons/Btn_Job"]
+layout_mode = 2
+offset_left = -24.0
+offset_top = 73.0
+offset_right = 104.0
+offset_bottom = 96.0
+text = "Job"
+horizontal_alignment = 1
+
+[node name="Btn_Shop" type="Button" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("5_jlsqs")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Shop" type="Label" parent="UI/NavPanel/Buttons/Btn_Shop"]
+layout_mode = 2
+offset_left = -23.0
+offset_top = 74.0
+offset_right = 105.0
+offset_bottom = 97.0
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Btn_Care" type="Button" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("6_q8u5g")
+icon_alignment = 1
+
+[node name="Care" type="Label" parent="UI/NavPanel/Buttons/Btn_Care"]
+layout_mode = 2
+offset_left = -25.0
+offset_top = 61.0
+offset_right = 103.0
+offset_bottom = 84.0
+text = "Care"
+horizontal_alignment = 1
+
+[node name="Btn_Items" type="Button" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("7_lhr70")
+icon_alignment = 1
+
+[node name="Item" type="Label" parent="UI/NavPanel/Buttons/Btn_Items"]
+layout_mode = 2
+offset_left = -26.0
+offset_top = 64.0
+offset_right = 102.0
+offset_bottom = 113.0
+text = "Items"
+horizontal_alignment = 1
+
+[node name="Settings" type="Button" parent="UI"]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 0
+icon = ExtResource("8_jlsqs")
+icon_alignment = 1
