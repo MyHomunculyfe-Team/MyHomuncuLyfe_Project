@@ -1,76 +1,59 @@
-# res://scripts/Pet.gd
-extends Sprite2D
+# Pet.gd (Godot 4)
+extends AnimatedSprite2D
 
-# --- Layout / safe-area controls (tune these to match your UI) ---
-@export var left_margin: float = 120.0   # width of the left nav panel
-@export var top_margin:  float = 200.0   # height of the top stats panel
-@export var pad:         float = 20.0    # extra padding inside the safe area
-@export var show_debug_rect: bool = false
+@export var speed_px_per_sec: float = 140.0
+@export var pause_range: Vector2 = Vector2(0.6, 1.6)
+@export var left_margin: float = 120.0
+@export var top_margin: float = 120.0
+@export var pad: float = 24.0
+@export var bob_amplitude: float = 2.0
+@export var bob_speed: float = 2.6
+@export var start_delay: float = 5.0   # <- wait this long before first movement
 
-# --- Movement controls ---
-@export var speed_px_per_sec: float = 140.0         # walk speed
-@export var pause_range:      Vector2 = Vector2(1.0, 3.0)  # random pause (sec)
-
-# Computed wander region (auto-updated)
-var move_rect: Rect2 = Rect2(Vector2(120, 200), Vector2(500, 200))
-
-# RNG
-var rng := RandomNumberGenerator.new()
+var _target: Vector2
+var _waiting := false
+var _bob_t := 0.0
 
 func _ready() -> void:
-	rng.randomize()
-	_update_move_rect()                                   # compute initial safe area
-	get_viewport().size_changed.connect(_update_move_rect) # recompute on resize
-	_start_idle_bob()
-	_wander_around()
+	randomize()
+	play("Walk")  # your one-frame anim
+	# initial delay before the first wander
+	_waiting = true
+	await get_tree().create_timer(max(0.0, start_delay)).timeout
+	_waiting = false
+	_pick_new_target()
 
-# Recompute the rectangle the pet is allowed to wander in, 
-# avoiding the left nav + top stats and keeping a padding.
-func _update_move_rect() -> void:
-	var vp_size: Vector2 = get_viewport_rect().size
+func _process(delta: float) -> void:
+	# subtle idle bobbing even while waiting
+	_bob_t += delta
+	offset.y = sin(_bob_t * bob_speed) * bob_amplitude
 
-	var x: float = left_margin + pad
-	var y: float = top_margin  + pad
-	var w: float = max(1.0, (vp_size.x - x) - pad)
-	var h: float = max(1.0, (vp_size.y - y) - pad)
+	if _waiting:
+		return
 
-	move_rect = Rect2(Vector2(x, y), Vector2(w, h))
-	queue_redraw()  # refresh debug draw if enabled
+	var to_vec := _target - global_position
+	var dist := to_vec.length()
 
-# Coroutine: wander forever to random points inside move_rect
-func _wander_around() -> void:
-	await get_tree().process_frame  # let scene settle
-	while true:
-		var target: Vector2 = _random_point_in_rect(move_rect)
-		var dist:   float   = (target - global_position).length()
-		var duration: float = max(0.15, dist / speed_px_per_sec)
+	if dist < 2.0:
+		_wait_then_move_again()
+		return
 
-		var tw := create_tween()
-		tw.tween_property(self, "global_position", target, duration)\
-			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		await tw.finished
+	var step := to_vec.normalized() * speed_px_per_sec * delta
+	if step.length() > dist:
+		step = to_vec
+	global_position += step
 
-		var wait_time: float = rng.randf_range(pause_range.x, pause_range.y)
-		await get_tree().create_timer(wait_time).timeout
+	flip_h = _target.x < global_position.x
 
-# Gentle idle bob loop
-func _start_idle_bob() -> void:
-	var bob := create_tween().set_loops()
-	var up: float = 6.0
-	var t:  float = 0.8
-	bob.tween_property(self, "position:y", position.y - up, t)\
-	   .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	bob.tween_property(self, "position:y", position.y, t)\
-	   .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+func _pick_new_target() -> void:
+	var viewport_size := get_viewport_rect().size
+	var x := randf_range(left_margin + pad, viewport_size.x - pad)
+	var y := randf_range(top_margin + pad, viewport_size.y - pad)
+	_target = Vector2(x, y)
 
-# Utils
-func _random_point_in_rect(r: Rect2) -> Vector2:
-	var rx: float = rng.randf_range(r.position.x, r.position.x + r.size.x)
-	var ry: float = rng.randf_range(r.position.y, r.position.y + r.size.y)
-	return Vector2(rx, ry)
-
-# Optional: draw the safe area for debugging 
-func _draw() -> void:
-	if show_debug_rect:
-		draw_rect(move_rect, Color(0, 1, 0, 0.12), true)
-		draw_rect(move_rect, Color(0, 1, 0, 0.8), 2.0)
+func _wait_then_move_again() -> void:
+	_waiting = true
+	var t := randf_range(pause_range.x, pause_range.y)
+	await get_tree().create_timer(t).timeout
+	_waiting = false
+	_pick_new_target()
