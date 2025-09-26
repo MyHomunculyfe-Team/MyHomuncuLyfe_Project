@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://exo60jai5r8k"]
+
+[ext_resource type="Script" uid="uid://ben0ogn3jwmna" path="res://Scripts/homunc.gd" id="1_hgutu"]
+[ext_resource type="Texture2D" uid="uid://rsijp88wu1pb" path="res://Assets/New Piskel.png" id="1_ybvqc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgutu"]
+atlas = ExtResource("1_ybvqc")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo57b"]
+atlas = ExtResource("1_ybvqc")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gysxo"]
+atlas = ExtResource("1_ybvqc")
+region = Rect2(0, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thp0v"]
+atlas = ExtResource("1_ybvqc")
+region = Rect2(0, 120, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khi1k"]
+atlas = ExtResource("1_ybvqc")
+region = Rect2(60, 120, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkoxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgutu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo57b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo57b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gysxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thp0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thp0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khi1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga4r6"]
+radius = 19.105
+
+[node name="Homunc" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_hgutu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_xkoxt")
+autoplay = "default"
+frame = 2
+frame_progress = 0.978194
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -20)
+shape = SubResource("CircleShape2D_ga4r6")

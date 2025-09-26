@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbsgsbwbafdgu"]
+
+[ext_resource type="Script" uid="uid://6lsg45enn1aa" path="res://Scripts/movethatspaghetti.gd" id="1_m2a1j"]
+[ext_resource type="Texture2D" uid="uid://dcuswi8w361k2" path="res://Assets/homunc food.png" id="2_a3bvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mutfk"]
+size = Vector2(49, 19)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_m2a1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-98, -11)
+scale = Vector2(0.0910665, 0.0910665)
+texture = ExtResource("2_a3bvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-97.5, -7.5)
+shape = SubResource("RectangleShape2D_mutfk")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -122.0
+offset_top = -15.0
+offset_right = -73.0
+offset_bottom = 1.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

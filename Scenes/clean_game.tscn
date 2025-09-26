@@ -1,0 +1,154 @@
+[gd_scene load_steps=17 format=3 uid="uid://fqi7n77odyi"]
+
+[ext_resource type="PackedScene" uid="uid://exo60jai5r8k" path="res://Scenes/homunc.tscn" id="1_6u8r2"]
+[ext_resource type="Script" uid="uid://ciwc6t722q21y" path="res://Scripts/game_manager.gd" id="1_15wn4"]
+[ext_resource type="Texture2D" uid="uid://cjurrn0lwolg7" path="res://Assets/platforms.png" id="2_6gq80"]
+[ext_resource type="FontFile" uid="uid://v2tpoash5e0o" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_qvkt2"]
+[ext_resource type="PackedScene" uid="uid://ux0mlc2lci42" path="res://Scenes/pool.tscn" id="3_tfnhl"]
+[ext_resource type="PackedScene" uid="uid://b2x2d4suhrs6c" path="res://Scenes/killzone.tscn" id="4_nfgv1"]
+[ext_resource type="PackedScene" uid="uid://c11ukfkieut25" path="res://Scenes/pointgain.tscn" id="5_1j4pg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qvkt2"]
+texture = ExtResource("2_6gq80")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_tfnhl"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qvkt2")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6gq80"]
+normal = Vector2(0.999774, -0.0212718)
+distance = -171.961
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tfnhl"]
+normal = Vector2(-1, 0)
+distance = -108.0
+
+[sub_resource type="Animation" id="Animation_tfnhl"]
+resource_name = "Move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-245, -13), Vector2(-40, -13)]
+}
+
+[sub_resource type="Animation" id="Animation_nfgv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-245, -13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15wn4"]
+_data = {
+&"Move": SubResource("Animation_tfnhl"),
+&"RESET": SubResource("Animation_nfgv1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvkt2"]
+size = Vector2(67.0001, 3.99999)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_15wn4"]
+
+[node name="CleanGame" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_15wn4")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = -277.0
+offset_top = -259.0
+offset_right = -161.0
+offset_bottom = -224.0
+theme_override_fonts/font = ExtResource("2_qvkt2")
+text = "Tries: 3
+Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_tfnhl")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65526, 131072, 1, -65525, 65536, 1, -65528, 131072, 1, -65527, 65536, 1, -65529, 65536, 1, -65519, 65536, 1, -65518, 131072, 1, -65521, 65536, 1, -65520, 131072, 1, -65523, 65536, 1, -65522, 131072, 1, -65524, 131072, 1)
+
+[node name="Homunc" parent="." instance=ExtResource("1_6u8r2")]
+unique_name_in_owner = true
+position = Vector2(277, -16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(6, -107)
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-194, -91)
+shape = SubResource("WorldBoundaryShape2D_6gq80")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(199, -17)
+shape = SubResource("WorldBoundaryShape2D_tfnhl")
+
+[node name="Pool" parent="." instance=ExtResource("3_tfnhl")]
+position = Vector2(-245, -13)
+scale = Vector2(2.3488, 1.24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pool"]
+libraries = {
+&"": SubResource("AnimationLibrary_15wn4")
+}
+autoplay = "Move"
+
+[node name="Pointgain" parent="Pool" instance=ExtResource("5_1j4pg")]
+position = Vector2(104.309, 10.4839)
+scale = Vector2(0.425749, 0.806452)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pool/Pointgain"]
+position = Vector2(-244.5, -19)
+shape = SubResource("RectangleShape2D_qvkt2")
+
+[node name="Killzone" parent="." instance=ExtResource("4_nfgv1")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-5, 65)
+shape = SubResource("WorldBoundaryShape2D_15wn4")
