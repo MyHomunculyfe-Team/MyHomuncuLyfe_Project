@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://isp6dn3q38wd"]
+[gd_scene load_steps=10 format=3 uid="uid://isp6dn3q38wd"]
+
+[ext_resource type="Script" uid="uid://bskti046stxe6" path="res://scenes/settings.gd" id="1_am25x"]
+[ext_resource type="Texture2D" uid="uid://bhtlra7sl0xxb" path="res://assets/Settingsbg.png" id="1_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://cbiywlgv0aqrw" path="res://assets/Settings.png" id="2_es4n0"]
+[ext_resource type="Texture2D" uid="uid://cvvxs1m6q24o3" path="res://assets/Back.png" id="3_gis3k"]
+[ext_resource type="Texture2D" uid="uid://bi7m4ykkpxlf7" path="res://assets/BackHover.png" id="4_83j8s"]
+[ext_resource type="Texture2D" uid="uid://caqwda7t21wwe" path="res://assets/Savebutton.png" id="6_4ppmf"]
+[ext_resource type="Texture2D" uid="uid://cakpy3i436ix" path="res://assets/Savebuttonhover .png" id="7_uhhto"]
+[ext_resource type="Texture2D" uid="uid://b1qf15be6kntb" path="res://assets/Loadbutton.png" id="8_1g033"]
+[ext_resource type="Texture2D" uid="uid://bmtq3naxfn8n" path="res://assets/Loadbuttonhover.png" id="9_01roj"]
 
 [node name="settings" type="Control"]
 layout_mode = 3
@@ -7,3 +17,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_am25x")
+points = null
+level = null
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 8.0
+offset_right = 1394.0
+offset_bottom = 922.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_f4mfi")
+stretch_mode = 4
+
+[node name="Settings" type="Sprite2D" parent="."]
+position = Vector2(567, 76)
+texture = ExtResource("2_es4n0")
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 24.0
+offset_right = 405.0
+offset_bottom = 126.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("3_gis3k")
+texture_pressed = ExtResource("4_83j8s")
+texture_hover = ExtResource("4_83j8s")
+
+[node name="Save Data" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 196.0
+offset_right = 795.0
+offset_bottom = 318.0
+texture_normal = ExtResource("6_4ppmf")
+texture_pressed = ExtResource("7_uhhto")
+texture_hover = ExtResource("7_uhhto")
+
+[node name="Load Data" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 340.0
+offset_right = 795.0
+offset_bottom = 462.0
+texture_normal = ExtResource("8_1g033")
+texture_pressed = ExtResource("9_01roj")
+texture_hover = ExtResource("9_01roj")
