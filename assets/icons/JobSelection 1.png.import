@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ytb7tc2ms0p5"
-path="res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"
+uid="uid://ngtw4yptjt3f"
+path="res://.godot/imported/JobSelection 1.png-1e4277d41022ebfc31100b8d2e33555d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/homunc box.png"
-dest_files=["res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"]
+source_file="res://assets/icons/JobSelection 1.png"
+dest_files=["res://.godot/imported/JobSelection 1.png-1e4277d41022ebfc31100b8d2e33555d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ytb7tc2ms0p5"
-path="res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"
+uid="uid://bwl3mrw02dxie"
+path="res://.godot/imported/tagi.png-f93a8a6143ad94445504f4d4a8c4de44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/homunc box.png"
-dest_files=["res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"]
+source_file="res://assets/tagi.png"
+dest_files=["res://.godot/imported/tagi.png-f93a8a6143ad94445504f4d4a8c4de44.ctex"]
 
 [params]
 

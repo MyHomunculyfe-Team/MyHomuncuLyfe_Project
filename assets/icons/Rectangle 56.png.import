@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ytb7tc2ms0p5"
-path="res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"
+uid="uid://dadllb0g7k61l"
+path="res://.godot/imported/Rectangle 56.png-edf3df401a9874432b3cea4dccc1965e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/homunc box.png"
-dest_files=["res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"]
+source_file="res://assets/icons/Rectangle 56.png"
+dest_files=["res://.godot/imported/Rectangle 56.png-edf3df401a9874432b3cea4dccc1965e.ctex"]
 
 [params]
 
