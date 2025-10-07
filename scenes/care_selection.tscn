@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc3i7wbgkaeam"]
+
+[ext_resource type="Script" uid="uid://dpefhbtb815a0" path="res://care selection/care_selection.gd" id="1_3nypg"]
+[ext_resource type="Texture2D" uid="uid://gype4nfbq8uj" path="res://assets/icons/Settings.png" id="2_0o0db"]
+[ext_resource type="Texture2D" uid="uid://bheh3umcdvn21" path="res://assets/icons/JobSelection 1.png" id="2_hr107"]
+[ext_resource type="Texture2D" uid="uid://bvh4kgnc22g2u" path="res://assets/icons/Group 19.png" id="4_hr107"]
+[ext_resource type="Texture2D" uid="uid://bvam588cojl0y" path="res://assets/icons/Group 14.png" id="4_yucaq"]
+[ext_resource type="Texture2D" uid="uid://bttq8jklp2jjj" path="res://assets/icons/Group 16.png" id="5_iwq8i"]
+[ext_resource type="Texture2D" uid="uid://dm7twx5qauu4b" path="res://assets/icons/Group 15.png" id="6_vlgim"]
+
+[sub_resource type="SystemFont" id="SystemFont_hr107"]
+font_names = PackedStringArray("Impact")
+
+[node name="care_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nypg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hr107")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MainBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/MainBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainBoxContainer/TopBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.458824, 0.980392, 1)
+theme_override_colors/font_shadow_color = Color(0.982343, 0.982342, 0.982342, 1)
+theme_override_colors/font_outline_color = Color(0.958961, 0.955032, 0.999983, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/outline_size = 18
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = SubResource("SystemFont_hr107")
+theme_override_font_sizes/font_size = 50
+text = "Care Minigames"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpacer" type="Control" parent="MarginContainer/MainBoxContainer/TopBar"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.87
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/MainBoxContainer/TopBar"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("2_0o0db")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MinigameList" type="VBoxContainer" parent="MarginContainer/MainBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="Homunculicious_Button" type="Button" parent="MarginContainer/MainBoxContainer/ScrollContainer/MinigameList"]
+custom_minimum_size = Vector2(500, 130)
+layout_mode = 2
+icon = ExtResource("4_yucaq")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Feed_Button" type="Button" parent="MarginContainer/MainBoxContainer/ScrollContainer/MinigameList"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+icon = ExtResource("5_iwq8i")
+
+[node name="Clean_Button" type="Button" parent="MarginContainer/MainBoxContainer/ScrollContainer/MinigameList"]
+layout_mode = 2
+icon = ExtResource("4_yucaq")
+
+[node name="Guard_Button" type="Button" parent="MarginContainer/MainBoxContainer/ScrollContainer/MinigameList"]
+layout_mode = 2
+icon = ExtResource("6_vlgim")
+
+[node name="QueueContainer" type="VBoxContainer" parent="MarginContainer/MainBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="QueueHBox" type="HBoxContainer" parent="MarginContainer/MainBoxContainer/QueueContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("4_hr107")
+
+[node name="Button2" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+icon = ExtResource("4_hr107")
+
+[node name="Button3" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+icon = ExtResource("4_hr107")
+
+[node name="Button4" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+icon = ExtResource("4_hr107")
+
+[node name="Play" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Play"
+
+[connection signal="pressed" from="MarginContainer/MainBoxContainer/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainBoxContainer/QueueContainer/Play" to="." method="_on_play_pressed"]
