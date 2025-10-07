@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="MyHomunculyfe"
+<<<<<<< Updated upstream
 run/main_scene="uid://cv8by5nv442y6"
+=======
+run/main_scene="uid://r45p0a1hgnpg"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
