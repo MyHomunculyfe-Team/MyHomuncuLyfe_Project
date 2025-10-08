@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://bc3i7wbgkaeam"]
 
-[ext_resource type="Script" uid="uid://dpefhbtb815a0" path="res://care selection/care_selection.gd" id="1_3nypg"]
 [ext_resource type="Texture2D" uid="uid://gype4nfbq8uj" path="res://assets/icons/Settings.png" id="2_0o0db"]
 [ext_resource type="Texture2D" uid="uid://bheh3umcdvn21" path="res://assets/icons/JobSelection 1.png" id="2_hr107"]
 [ext_resource type="Texture2D" uid="uid://bvh4kgnc22g2u" path="res://assets/icons/Group 19.png" id="4_hr107"]
@@ -11,6 +10,8 @@
 [sub_resource type="SystemFont" id="SystemFont_hr107"]
 font_names = PackedStringArray("Impact")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvofo"]
+
 [node name="care_selection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -18,7 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3nypg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -112,30 +112,50 @@ icon = ExtResource("6_vlgim")
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="QueueHBox" type="HBoxContainer" parent="MarginContainer/MainBoxContainer/QueueContainer"]
+[node name="BottomScroll" type="ScrollContainer" parent="MarginContainer/MainBoxContainer/QueueContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_constants/separation = 30
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hvofo")
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
 
-[node name="Button" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
-custom_minimum_size = Vector2(100, 100)
+[node name="QueueHBox" type="HBoxContainer" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(80, 60)
 layout_mode = 2
 size_flags_vertical = 3
 icon = ExtResource("4_hr107")
 
-[node name="Button2" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+[node name="Button2" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
 custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
 icon = ExtResource("4_hr107")
 
-[node name="Button3" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
+[node name="Button3" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
 custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
 icon = ExtResource("4_hr107")
 
-[node name="Button4" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/QueueHBox"]
-custom_minimum_size = Vector2(160, 100)
+[node name="Button4" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+icon = ExtResource("4_hr107")
+
+[node name="Button5" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+icon = ExtResource("4_hr107")
+
+[node name="Button6" type="Button" parent="MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 icon = ExtResource("4_hr107")
 
