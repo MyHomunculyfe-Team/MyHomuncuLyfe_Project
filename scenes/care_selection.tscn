@@ -167,5 +167,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Play"
 
+[node name="TotalCostLabel" type="Label" parent="MarginContainer/MainBoxContainer/QueueContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Total Cost: 0"
+
 [connection signal="pressed" from="MarginContainer/MainBoxContainer/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainBoxContainer/QueueContainer/Play" to="." method="_on_play_pressed"]
