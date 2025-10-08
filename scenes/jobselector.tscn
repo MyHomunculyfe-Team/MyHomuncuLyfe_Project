@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://r45p0a1hgnpg"]
+[gd_scene load_steps=12 format=3 uid="uid://r45p0a1hgnpg"]
 
+[ext_resource type="Script" uid="uid://cxfumeadtktwm" path="res://scripts/jobselector.gd" id="1_e4pb7"]
 [ext_resource type="Texture2D" uid="uid://bheh3umcdvn21" path="res://assets/icons/JobSelection 1.png" id="1_yveba"]
 [ext_resource type="Texture2D" uid="uid://bvam588cojl0y" path="res://assets/icons/Group 14.png" id="2_nvsrq"]
 [ext_resource type="Texture2D" uid="uid://bttq8jklp2jjj" path="res://assets/icons/Group 16.png" id="3_0h5ni"]
@@ -15,6 +16,7 @@
 font_names = PackedStringArray("Impact")
 
 [node name="jobselector" type="Node2D"]
+script = ExtResource("1_e4pb7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -117,16 +119,6 @@ custom_minimum_size = Vector2(170, 100)
 layout_mode = 2
 icon = ExtResource("5_mmyos")
 
-[node name="Button5" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(250, 100)
-layout_mode = 2
-icon = ExtResource("5_mmyos")
-
-[node name="Button6" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(250, 100)
-layout_mode = 2
-icon = ExtResource("5_mmyos")
-
 [node name="Play" type="Button" parent="UI"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -141,7 +133,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 10
 size_flags_vertical = 10
-theme_override_colors/icon_normal_color = Color(0.677504, 0.784652, 1, 0.419608)
+theme_override_colors/icon_normal_color = Color(0.933333, 0.941176, 1, 0.909804)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 icon = ExtResource("6_e4pb7")
 
@@ -165,7 +157,7 @@ size_flags_stretch_ratio = 6.87
 
 [node name="TitleLabel" type="Label" parent="UI/TopBar"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.905882, 0.458824, 0.980392, 1)
+theme_override_colors/font_color = Color(0.374986, 0.137605, 0.875, 1)
 theme_override_colors/font_shadow_color = Color(0.982343, 0.982342, 0.982342, 1)
 theme_override_colors/font_outline_color = Color(0.958961, 0.955032, 0.999983, 1)
 theme_override_constants/shadow_offset_x = 2
@@ -174,7 +166,7 @@ theme_override_constants/outline_size = 18
 theme_override_constants/shadow_outline_size = 18
 theme_override_fonts/font = SubResource("SystemFont_ng8qe")
 theme_override_font_sizes/font_size = 50
-text = "Care Minigames"
+text = "Job Minigames"
 horizontal_alignment = 1
 vertical_alignment = 1
 
