@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc3i7wbgkaeam"]
+[gd_scene load_steps=10 format=3 uid="uid://bc3i7wbgkaeam"]
 
+[ext_resource type="Script" uid="uid://dvxa0k03epv3f" path="res://scenes/care_selection.gd" id="1_2g0yg"]
 [ext_resource type="Texture2D" uid="uid://gype4nfbq8uj" path="res://assets/icons/Settings.png" id="2_0o0db"]
 [ext_resource type="Texture2D" uid="uid://bheh3umcdvn21" path="res://assets/icons/JobSelection 1.png" id="2_hr107"]
 [ext_resource type="Texture2D" uid="uid://bvh4kgnc22g2u" path="res://assets/icons/Group 19.png" id="4_hr107"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2g0yg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
