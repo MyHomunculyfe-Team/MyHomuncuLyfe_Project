@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc3i7wbgkaeam"]
+[gd_scene load_steps=11 format=3 uid="uid://dnlclgwcapbvx"]
 
-[ext_resource type="Script" uid="uid://dvxa0k03epv3f" path="res://scenes/care_selection.gd" id="1_2g0yg"]
+[ext_resource type="Script" path="res://scenes/care_selection.gd" id="1_2g0yg"]
 [ext_resource type="Texture2D" uid="uid://gype4nfbq8uj" path="res://assets/icons/Settings.png" id="2_0o0db"]
 [ext_resource type="Texture2D" uid="uid://bheh3umcdvn21" path="res://assets/icons/JobSelection 1.png" id="2_hr107"]
 [ext_resource type="Texture2D" uid="uid://tifcwhlwuyul" path="res://assets/icons/Back.png" id="3_um405"]
