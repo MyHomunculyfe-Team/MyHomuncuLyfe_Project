@@ -6,10 +6,10 @@ extends Node2D
 
 # Job name → Scene path
 var job_data = {
-	"Homunculicious": "res://scenes/homunculicious.tscn",
-	"Feed": "res://scenes/feed.tscn",
-	"Clean": "res://scenes/clean.tscn",
-	"Guard": "res://scenes/guard.tscn",
+	"Homunculicious": "res://scenes/homuncu-licious.tscn",
+	"Feed": "res://scenes/homuncu-feasting.tscn",
+	"Clean": "res://scenes/homuncu-cleaning.tscn",
+	"Guard": "res://scenes/homuncu-feasting.tscn",
 }
 
 # Track queued jobs
