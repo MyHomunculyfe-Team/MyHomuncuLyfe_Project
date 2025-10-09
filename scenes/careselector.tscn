@@ -1,3 +1,188 @@
-[gd_scene format=3 uid="uid://dnlclgwcapbvx"]
+[gd_scene load_steps=12 format=3 uid="uid://dnlclgwcapbvx"]
+
+[ext_resource type="Texture2D" uid="uid://dkum5w7f2sies" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
+[ext_resource type="Script" uid="uid://bb4ddjyurf4pa" path="res://scripts/careselector.gd" id="1_u4n15"]
+[ext_resource type="Texture2D" uid="uid://bvbuxl4qox0eg" path="res://assets/icons/Group 14.png" id="2_u4n15"]
+[ext_resource type="Texture2D" uid="uid://ct7v2loji3gx8" path="res://assets/icons/Group 16.png" id="3_16hxn"]
+[ext_resource type="Texture2D" uid="uid://dt8jes0wo3tnd" path="res://assets/icons/Group 15.png" id="4_igj00"]
+[ext_resource type="Texture2D" uid="uid://btko1pmu4lmyg" path="res://assets/icons/Group 19.png" id="5_du1i2"]
+[ext_resource type="Texture2D" uid="uid://cciwuk1b0qrka" path="res://assets/icons/PLAY.png" id="6_75sxh"]
+[ext_resource type="Texture2D" uid="uid://clq7ln4wejax3" path="res://assets/icons/Back.png" id="7_oya68"]
+[ext_resource type="Texture2D" uid="uid://dusqxyw4me0bm" path="res://assets/icons/settings.png" id="8_fxaq4"]
+
+[sub_resource type="Theme" id="Theme_8nyr6"]
+
+[sub_resource type="SystemFont" id="SystemFont_onchd"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_u4n15")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6inym")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 62.0
+offset_right = -111.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MinigameList" type="VBoxContainer" parent="UI/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="Homunculicious_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
+custom_minimum_size = Vector2(500, 130)
+layout_mode = 2
+icon = ExtResource("2_u4n15")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Feed_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+icon = ExtResource("3_16hxn")
+
+[node name="Clean_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
+layout_mode = 2
+icon = ExtResource("2_u4n15")
+
+[node name="Guard_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
+layout_mode = 2
+icon = ExtResource("4_igj00")
+
+[node name="NavPanel" type="PanelContainer" parent="UI"]
+anchors_preset = -1
+anchor_top = 0.292
+anchor_right = 0.035
+anchor_bottom = 0.347
+offset_left = 175.0
+offset_top = 247.784
+offset_right = 1027.68
+offset_bottom = 364.144
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BottomScroll" type="ScrollContainer" parent="UI/NavPanel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="QueueHBox" type="HBoxContainer" parent="UI/NavPanel/BottomScroll"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("5_du1i2")
+
+[node name="Button2" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+icon = ExtResource("5_du1i2")
+
+[node name="Button3" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+icon = ExtResource("5_du1i2")
+
+[node name="Button4" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
+custom_minimum_size = Vector2(170, 100)
+layout_mode = 2
+icon = ExtResource("5_du1i2")
+
+[node name="Play" type="Button" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -54.0
+offset_right = -28.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+theme_override_colors/icon_normal_color = Color(0.933333, 0.941176, 1, 0.909804)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+icon = ExtResource("6_75sxh")
+
+[node name="TopBar" type="HBoxContainer" parent="UI"]
+offset_right = 1115.0
+offset_bottom = 62.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="UI/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_8nyr6")
+icon = ExtResource("7_oya68")
+
+[node name="TopSpacer" type="Control" parent="UI/TopBar"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.87
+
+[node name="TitleLabel" type="Label" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.278431, 0.101961, 0.65098, 0.745098)
+theme_override_colors/font_shadow_color = Color(0.982343, 0.982342, 0.982342, 1)
+theme_override_colors/font_outline_color = Color(0.958961, 0.955032, 0.999983, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/outline_size = 18
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = SubResource("SystemFont_onchd")
+theme_override_font_sizes/font_size = 50
+text = "Care Minigames"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopSpacer2" type="Control" parent="UI/TopBar"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.87
+
+[node name="SettingsButton" type="TextureButton" parent="UI/TopBar"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("8_fxaq4")
+
+[connection signal="pressed" from="UI/TopBar/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]

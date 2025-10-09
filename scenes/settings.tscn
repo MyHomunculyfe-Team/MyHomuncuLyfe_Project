@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://isp6dn3q38wd"]
 
-[ext_resource type="Script" uid="uid://bskti046stxe6" path="res://scenes/settings.gd" id="1_am25x"]
-[ext_resource type="Texture2D" uid="uid://bhtlra7sl0xxb" path="res://assets/Settingsbg.png" id="1_f4mfi"]
-[ext_resource type="Texture2D" uid="uid://cbiywlgv0aqrw" path="res://assets/Settings.png" id="2_es4n0"]
-[ext_resource type="Texture2D" uid="uid://cvvxs1m6q24o3" path="res://assets/Back.png" id="3_gis3k"]
-[ext_resource type="Texture2D" uid="uid://bi7m4ykkpxlf7" path="res://assets/BackHover.png" id="4_83j8s"]
-[ext_resource type="Texture2D" uid="uid://caqwda7t21wwe" path="res://assets/Savebutton.png" id="6_4ppmf"]
-[ext_resource type="Texture2D" uid="uid://cakpy3i436ix" path="res://assets/Savebuttonhover .png" id="7_uhhto"]
-[ext_resource type="Texture2D" uid="uid://b1qf15be6kntb" path="res://assets/Loadbutton.png" id="8_1g033"]
-[ext_resource type="Texture2D" uid="uid://bmtq3naxfn8n" path="res://assets/Loadbuttonhover.png" id="9_01roj"]
+[ext_resource type="Script" uid="uid://bskti046stxe6" path="res://scripts/settings.gd" id="1_am25x"]
+[ext_resource type="Texture2D" uid="uid://cuum04wvs0b1y" path="res://assets/Settingsbg.png" id="1_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://bebllohp087ou" path="res://assets/Settings.png" id="2_es4n0"]
+[ext_resource type="Texture2D" uid="uid://dftnaefpv1ap5" path="res://assets/Back.png" id="3_gis3k"]
+[ext_resource type="Texture2D" uid="uid://h327j2jweten" path="res://assets/BackHover.png" id="4_83j8s"]
+[ext_resource type="Texture2D" uid="uid://cat34vdc3jn3n" path="res://assets/Savebutton.png" id="6_4ppmf"]
+[ext_resource type="Texture2D" uid="uid://bio7wsxvt4snu" path="res://assets/Savebuttonhover .png" id="7_uhhto"]
+[ext_resource type="Texture2D" uid="uid://ds8dtxi41xcuc" path="res://assets/Loadbutton.png" id="8_1g033"]
+[ext_resource type="Texture2D" uid="uid://b5ddokl6hdauj" path="res://assets/Loadbuttonhover.png" id="9_01roj"]
 
 [node name="settings" type="Control"]
 layout_mode = 3
@@ -65,3 +65,5 @@ offset_bottom = 462.0
 texture_normal = ExtResource("8_1g033")
 texture_pressed = ExtResource("9_01roj")
 texture_hover = ExtResource("9_01roj")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

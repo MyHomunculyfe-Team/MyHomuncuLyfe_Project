@@ -1,33 +1,28 @@
-extends Control
+extends Node2D
 
-# --- Minigame Data (Name + Cost) ---
+# --- Minigame Data (Name + Scene Path) ---
 var minigame_data = {
-	"Homunculicious": 1,
-	"Feed": 3,
-	"Clean": 1,
-	"Guard": 2,
+	"Homunculicious": "res://scenes/homunculicious.tscn",
+	"Feed": "res://scenes/feed.tscn",
+	"Clean": "res://scenes/clean.tscn",
+	"Guard": "res://scenes/guard.tscn",
 }
 
 # --- Dynamic queue state ---
 var minigame_queue: Array = []
 
 # --- Cached node references ---
-@onready var queue_hbox = $MarginContainer/MainBoxContainer/QueueContainer/BottomScroll/QueueHBox
-@onready var minigame_list = $MarginContainer/MainBoxContainer/ScrollContainer/MinigameList
-@onready var total_cost_label = $MarginContainer/MainBoxContainer/QueueContainer/TotalCostLabel
+@onready var queue_hbox = $UI/NavPanel/BottomScroll/QueueHBox
+@onready var minigame_list = $UI/PanelContainer/ScrollContainer/MinigameList
 
 func _ready():
-	# Label setup for minigames
 	for button in minigame_list.get_children():
 		var game_name = button.name.replace("_Button", "")
-		var cost = minigame_data.get(game_name, 1)
-		button.text = "%s  (💰%d)" % [game_name, cost]
+		button.text = game_name
 
 	for button in queue_hbox.get_children():
 		button.text = ""
 		button.disabled = true
-
-	_update_total_cost()
 
 
 # =====================================================
@@ -39,15 +34,12 @@ func _on_Clean_Button_pressed(): _add_to_queue("Clean")
 func _on_Guard_Button_pressed(): _add_to_queue("Guard")
 
 func _add_to_queue(game_name: String):
-	# Find the first empty slot in queue
 	for button in queue_hbox.get_children():
 		if button.text == "":
-			var cost = minigame_data.get(game_name, 1)
-			button.text = "%s  (💰%d)" % [game_name, cost]
+			button.text = game_name
 			button.disabled = false
-			minigame_queue.append({"name": game_name, "cost": cost})
-			print("Added:", game_name, "Cost:", cost)
-			_update_total_cost()
+			minigame_queue.append(game_name)
+			print("Added:", game_name)
 			return
 	print("⚠️ Queue full! Remove one to add new.")
 
@@ -57,27 +49,11 @@ func _add_to_queue(game_name: String):
 # =====================================================
 func _on_Queue_button_pressed(button: Button):
 	if button.text != "":
-		var game_name = button.text.split("  ")[0]
+		var game_name = button.text
 		print("Removed:", game_name)
 		button.text = ""
 		button.disabled = true
-		
-		for entry in minigame_queue:
-			if entry.name == game_name:
-				minigame_queue.erase(entry)
-				break
-		
-		_update_total_cost()
-
-
-# =====================================================
-# 💰 TOTAL COST — Update display
-# =====================================================
-func _update_total_cost():
-	var total = 0
-	for entry in minigame_queue:
-		total += entry.cost
-	total_cost_label.text = "Total Cost: %d" % total
+		minigame_queue.erase(game_name)
 
 
 # =====================================================
@@ -87,22 +63,22 @@ func _on_Play_pressed():
 	if minigame_queue.is_empty():
 		print("⚠️ No minigames in queue!")
 		return
+
+	print("🎮 Starting queued minigames...")
+
+	# Load the first minigame in the queue
+	var first_game = minigame_queue[0]
+	var path = minigame_data.get(first_game, "")
 	
-	print("🎮 Starting queued minigames:")
-	for game in minigame_queue:
-		print("- %s (Cost: %d)" % [game.name, game.cost])
-
-	# After playing, clear everything
-	minigame_queue.clear()
-	for button in queue_hbox.get_children():
-		button.text = ""
-		button.disabled = true
-	
-	_update_total_cost()
+	if path != "":
+		get_tree().change_scene_to_file(path)
+	else:
+		print("⚠️ Scene not found for", first_game)
 
 
-# =====================================================
-# ⚙️ SETTINGS BUTTON — Navigate to settings screen
-# =====================================================
-func _on_SettingsButton_pressed():
+func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
+
+func _on_back_button_pressed(): 
+	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
