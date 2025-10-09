@@ -100,8 +100,10 @@ func _play_next_job():
 # =====================================================
 # NAVIGATION BUTTONS
 # =====================================================
-func _on_SettingsButton_pressed():
-	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
-func _on_BackButton_pressed():
+
+func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+	
+func _on_settings_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
