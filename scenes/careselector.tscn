@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqpxb8j7p8bm2"]
 
 [ext_resource type="Texture2D" uid="uid://dkum5w7f2sies" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
-[ext_resource type="Script" path="res://scripts/careselector.gd" id="1_u4n15"]
+[ext_resource type="Script" uid="uid://bb4ddjyurf4pa" path="res://scripts/careselector.gd" id="1_u4n15"]
 [ext_resource type="Texture2D" uid="uid://bvbuxl4qox0eg" path="res://assets/icons/Group 14.png" id="2_u4n15"]
 [ext_resource type="Texture2D" uid="uid://ct7v2loji3gx8" path="res://assets/icons/Group 16.png" id="3_16hxn"]
 [ext_resource type="Texture2D" uid="uid://dt8jes0wo3tnd" path="res://assets/icons/Group 15.png" id="4_igj00"]
@@ -184,5 +184,14 @@ size_flags_horizontal = 8
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("8_fxaq4")
 
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/MinigameList/Homunculicious_Button" to="." method="_on_homunculicious_button_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/MinigameList/Feed_Button" to="." method="_on_feed_button_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/MinigameList/Clean_Button" to="." method="_on_clean_button_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/ScrollContainer/MinigameList/Guard_Button" to="." method="_on_guard_button_pressed"]
+[connection signal="pressed" from="UI/NavPanel/BottomScroll/QueueHBox/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/NavPanel/BottomScroll/QueueHBox/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/NavPanel/BottomScroll/QueueHBox/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/NavPanel/BottomScroll/QueueHBox/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="UI/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/TopBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -5,98 +5,93 @@ extends Node2D
 # =====================================================
 
 # Job name → Scene path
-var job_data = {
+var minigame_data = {
 	"Homunculicious": "res://scenes/homuncu-licious.tscn",
 	"Feed": "res://scenes/homuncu-feasting.tscn",
 	"Clean": "res://scenes/homuncu-cleaning.tscn",
-	"Guard": "res://scenes/homuncu-feasting.tscn",
+	"Guard": "res://scenes/homunc-employed.tscn",
 }
-
-# Track queued jobs
-var job_queue: Array = []
+# --- Dynamic queue state ---
+var minigame_queue: Array = []
+var current_index: int = 0
 
 # Cached node references
+# --- Cached nodes ---
 @onready var queue_hbox = $UI/NavPanel/BottomScroll/QueueHBox
 @onready var minigame_list = $UI/PanelContainer/ScrollContainer/MinigameList
-
-
 # =====================================================
 # READY
 # =====================================================
 func _ready():
-	# Set top list button text dynamically
-	for button in minigame_list.get_children():
-		var job_name = button.name.replace("_Button", "")
-		button.text = job_name
+	print("✅ Job Selection ready!")
 
-	# Initialize empty queue slots
+	# connect minigame buttons
+	for button in minigame_list.get_children():
+		var game_name = button.name.replace("_Button", "")
+		button.text = game_name
+		button.connect("pressed", Callable(self, "_on_minigame_pressed").bind(game_name))
+
+	# connect queue buttons
 	for button in queue_hbox.get_children():
 		button.text = ""
 		button.disabled = true
-
+		button.connect("pressed", Callable(self, "_on_queue_button_pressed").bind(button))
 
 # =====================================================
 # ADD TO QUEUE (Top buttons)
 # =====================================================
-func _on_Homunculicious_Button_pressed(): _add_to_queue("Homunculicious")
-func _on_Feed_Button_pressed(): _add_to_queue("Feed")
-func _on_Clean_Button_pressed(): _add_to_queue("Clean")
-func _on_Guard_Button_pressed(): _add_to_queue("Guard")
 
-func _add_to_queue(job_name: String):
+func _on_minigame_pressed(game_name: String):
 	for button in queue_hbox.get_children():
 		if button.text == "":
-			button.text = job_name
+			button.text = game_name
 			button.disabled = false
-			job_queue.append(job_name)
+			minigame_queue.append(game_name)
+			print("✅ Added:", game_name)
 			return
-	print("⚠️ Queue full! Remove one first.")
+	print("⚠️ Queue full! Remove one to add new.")
+
 
 
 # =====================================================
 # REMOVE FROM QUEUE (Bottom buttons)
 # =====================================================
-func _on_Queue_button_pressed(button: Button):
+func _on_queue_button_pressed(button: Button):
 	if button.text != "":
-		var job_name = button.text
+		var game_name = button.text
+		print("🗑️ Removed:", game_name)
 		button.text = ""
 		button.disabled = true
-		job_queue.erase(job_name)
+		minigame_queue.erase(game_name)
+
 
 
 # =====================================================
 # PLAY BUTTON FUNCTIONALITY
 # =====================================================
 func _on_Play_pressed():
-	if job_queue.is_empty():
-		print("⚠️ No jobs selected!")
+	if minigame_queue.is_empty():
+		print("⚠️ No minigames in queue!")
 		return
 
-	print("🎮 Starting queued jobs:")
-	_play_next_job()
+	print("🎮 Starting queued minigames...")
+	current_index = 0
+	_play_next_minigame()
 
 
-func _play_next_job():
-	if job_queue.is_empty():
-		# Finished all jobs — clear buttons
-		for button in queue_hbox.get_children():
-			button.text = ""
-			button.disabled = true
-		print("✅ All jobs completed!")
+func _play_next_minigame():
+	if current_index >= minigame_queue.size():
+		print("✅ All minigames finished! Returning to Care Selection.")
+		get_tree().change_scene_to_file("res://scenes/care_selection.tscn")
 		return
 
-	var next_job = job_queue.pop_front()
-	var scene_path = job_data[next_job]
-
-	if ResourceLoader.exists(scene_path):
-		print("▶️ Loading job:", next_job)
-		var next_scene = load(scene_path)
-		get_tree().change_scene_to_packed(next_scene)
+	var current_game = minigame_queue[current_index]
+	var path = minigame_data.get(current_game, "")
+	if path != "":
+		print("▶️ Loading:", current_game)
+		get_tree().change_scene_to_file(path)
 	else:
-		print("⚠️ Scene not found for:", next_job)
-		_play_next_job()
-
-
+		print("⚠️ Scene not found for", current_game)
 # =====================================================
 # NAVIGATION BUTTONS
 # =====================================================
@@ -107,3 +102,35 @@ func _on_back_button_pressed():
 	
 func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
+func _on_homunculicious_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_feed_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_clean_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_guard_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_2_pressed():
+	pass # Replace with function body.
+
+
+
+func _on_button_3_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_4_pressed():
+	pass # Replace with function body.
