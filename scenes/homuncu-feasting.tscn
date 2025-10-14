@@ -1,5 +1,167 @@
-[gd_scene format=3 uid="uid://bh3o5okllnmun"]
+[gd_scene load_steps=21 format=3 uid="uid://bh3o5okllnmun"]
 
-[node name="Homuncu-feasting" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b7uivqqmiqcil" path="res://assets/Homunc.png" id="1_1w66d"]
+[ext_resource type="Script" uid="uid://tcfkg1p2r2we" path="res://scenes/homunculus.gd" id="1_7boqm"]
+[ext_resource type="Texture2D" uid="uid://b4j8gcgdwui2v" path="res://assets/feastingbg.png" id="1_dejx8"]
+[ext_resource type="Texture2D" uid="uid://c6ge7m37tc1oc" path="res://assets/Munceat.png" id="4_q0kig"]
+[ext_resource type="Texture2D" uid="uid://nqjud3k65pn3" path="res://assets/feastingtable.png" id="4_q2yne"]
+[ext_resource type="Texture2D" uid="uid://d1us4dk4ujfab" path="res://assets/Bowl.png" id="5_6gpyx"]
+[ext_resource type="Script" uid="uid://ca0i5lolf3j5e" path="res://scenes/bowl.gd" id="5_bvpi5"]
+[ext_resource type="Script" uid="uid://biig3agr3d8ot" path="res://scenes/bone.gd" id="6_biffj"]
+[ext_resource type="Texture2D" uid="uid://2adqdtsucth8" path="res://assets/bone.png" id="6_njwbk"]
+[ext_resource type="Texture2D" uid="uid://c4lydgagmn486" path="res://assets/bowl-1.png" id="7_q0kig"]
+[ext_resource type="Texture2D" uid="uid://b6883a0p0nrj2" path="res://assets/bowl-2.png" id="8_yvq8f"]
+[ext_resource type="Texture2D" uid="uid://tbkcs5bc8r8s" path="res://assets/bowl-3.png" id="9_1303x"]
+[ext_resource type="Texture2D" uid="uid://bmdh2l28usf4q" path="res://assets/bowl-4.png" id="10_na7uk"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1w66d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1w66d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0kig")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0kig"]
+size = Vector2(1442, 767)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2yne"]
+size = Vector2(1216, 168.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njwbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6gpyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q0kig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yvq8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1303x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_na7uk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biffj"]
+radius = 77.0
+height = 250.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biffj"]
+size = Vector2(211.728, 83.4958)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvpi5"]
+size = Vector2(1400, 453)
+
+[node name="homuncu-feasting" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1440.0
+offset_bottom = 1024.0
+texture = ExtResource("1_dejx8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Homunculus" type="CharacterBody2D" parent="." node_paths=PackedStringArray("bowl")]
+position = Vector2(292, 243)
+scale = Vector2(1.5, 1.5)
+collision_mask = 5
+script = ExtResource("1_7boqm")
+bowl = NodePath("../Bowl")
+metadata/_edit_group_ = true
+
+[node name="Main" type="Node2D" parent="Homunculus"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Homunculus"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_1w66d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Homunculus"]
+position = Vector2(-10.4091, -24.5516)
+polygon = PackedVector2Array(-14.5909, 20.5516, 3.40915, -35.4484, 49.4091, -34.4484, 75.4091, 10.5516, 68.4091, 31.5516, 88.4091, 61.5516, 63.4091, 85.5516, -59.5909, 72.5516, -57.5909, 30.5516)
+
+[node name="MuncAllowedArea" type="Area2D" parent="Homunculus"]
+position = Vector2(-189.333, 16)
+scale = Vector2(0.666667, 0.666667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Homunculus/MuncAllowedArea"]
+position = Vector2(711, 373.5)
+shape = SubResource("RectangleShape2D_q0kig")
+
+[node name="BowlTimer" type="Timer" parent="Homunculus"]
+
+[node name="Table" type="CharacterBody2D" parent="."]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Table"]
+position = Vector2(720, 514)
+texture = ExtResource("4_q2yne")
+
+[node name="Area2D" type="Area2D" parent="Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Area2D"]
+position = Vector2(715, 940.25)
+shape = SubResource("RectangleShape2D_q2yne")
+
+[node name="Bowl" type="CharacterBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_bvpi5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bowl"]
+position = Vector2(703, 699)
+sprite_frames = SubResource("SpriteFrames_njwbk")
+frame_progress = 0.945919
+
+[node name="Area2D" type="Area2D" parent="Bowl"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bowl/Area2D"]
+position = Vector2(708, 700)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_biffj")
+
+[node name="Bone" type="CharacterBody2D" parent="." node_paths=PackedStringArray("FoodFloatArea") groups=["Food"]]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("6_biffj")
+FoodFloatArea = NodePath("../FoodFloatArea")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bone"]
+texture = ExtResource("6_njwbk")
+
+[node name="Timer" type="Timer" parent="Bone"]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bone"]
+position = Vector2(-17.695, 6.6511)
+rotation = -0.359538
+shape = SubResource("RectangleShape2D_biffj")
+
+[node name="FoodFloatArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodFloatArea"]
+position = Vector2(724, 324.5)
+shape = SubResource("RectangleShape2D_bvpi5")
+
+[connection signal="body_entered" from="Table/Area2D" to="Homunculus" method="_on_table_floor"]
+[connection signal="body_exited" from="Table/Area2D" to="Homunculus" method="_off_table_floor"]
+[connection signal="body_entered" from="Bowl/Area2D" to="Homunculus" method="_on_bowl"]
+[connection signal="body_entered" from="Bowl/Area2D" to="Bone" method="on_bowl"]
+[connection signal="body_exited" from="Bowl/Area2D" to="Homunculus" method="_off_bowl"]
+[connection signal="body_exited" from="Bowl/Area2D" to="Bone" method="out_bowl"]
