@@ -49,7 +49,7 @@ func _process(delta: float):
 		global_position += bounce_velocity * delta
 		_check_bounds()
 
-# ---- Automatic cycle ----
+#Automatic cycle for hiding and showing
 func _cycle_mode():
 	if is_visible_mode:
 		hide_with_pop()
@@ -61,7 +61,7 @@ func _cycle_mode():
 	
 	_cycle_mode()  # loop forever
 
-# ---- Animations ----
+#Animations
 func show_with_pop():
 	is_visible_mode = true
 	timer = 0.0
@@ -73,6 +73,7 @@ func show_with_pop():
 	tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(sprite, "scale", Vector2.ONE, 0.5)
 
+#Hiding bone temporarily at intervals
 func hide_with_pop():
 	is_visible_mode = false
 	timer = 0.0
@@ -86,7 +87,7 @@ func hide_with_pop():
 		dragging = false)
 	
 	
-
+#Function to keep bone within a certain area
 func _check_bounds():
 	var screen_size = FoodFloatArea.get_node("CollisionShape2D").shape.extents * 2
 	
@@ -107,14 +108,13 @@ func _check_bounds():
 	
 
 		
-#When it touches bowl, it hide with pop
+#To sense when bone has touched bowl
 func on_bowl(body):
+	#When it touches bowl, it hide with pop
 	if body is CharacterBody2D and dragging:
 		is_on_bowl = true
-		print("bone is in bowl")
 		hide_with_pop()
-		
+#To sense when bone has stopped touching bowl	
 func out_bowl(body):
 	if body is CharacterBody2D:
 		is_on_bowl = false
-		print("out of bowl")
