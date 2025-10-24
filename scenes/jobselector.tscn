@@ -1,187 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://r45p0a1hgnpg"]
+[gd_scene load_steps=2 format=3 uid="uid://bblsf2mngvu0b"]
 
-[ext_resource type="Script" uid="uid://cxfumeadtktwm" path="res://scripts/jobselector.gd" id="1_e4pb7"]
-[ext_resource type="Texture2D" uid="uid://c62e6f4qle3c6" path="res://assets/icons/JobSelection 1.png" id="1_yveba"]
-[ext_resource type="Texture2D" uid="uid://c0nydqvhv0184" path="res://assets/icons/Group 14.png" id="2_nvsrq"]
-[ext_resource type="Texture2D" uid="uid://b7ov8t8gmt4n2" path="res://assets/icons/Group 16.png" id="3_0h5ni"]
-[ext_resource type="Texture2D" uid="uid://b0t445wgmswgt" path="res://assets/icons/Group 15.png" id="4_1rcnu"]
-[ext_resource type="Texture2D" uid="uid://ys5fw5bcxbyt" path="res://assets/icons/Group 19.png" id="5_mmyos"]
-[ext_resource type="Texture2D" uid="uid://doi3twr1g4phv" path="res://assets/icons/PLAY.png" id="6_e4pb7"]
-[ext_resource type="Texture2D" uid="uid://do8m2kshmws67" path="res://assets/icons/Back.png" id="9_uwjpn"]
-[ext_resource type="Texture2D" uid="uid://bwkr38fu5iowe" path="res://assets/icons/Settings.png" id="10_l2c64"]
+[ext_resource type="Script" uid="uid://cogaq782yoest" path="res://scripts/jobselector.gd" id="1_60n7b"]
 
-[sub_resource type="Theme" id="Theme_8ileu"]
-
-[sub_resource type="SystemFont" id="SystemFont_ng8qe"]
-font_names = PackedStringArray("Impact")
-
-[node name="jobselector" type="Node2D"]
-script = ExtResource("1_e4pb7")
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="UI"]
+[node name="Control" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_yveba")
-expand_mode = 3
+script = ExtResource("1_60n7b")
 
-[node name="PanelContainer" type="PanelContainer" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 288.0
-offset_top = 62.0
-offset_right = -111.0
-offset_bottom = -219.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/PanelContainer"]
+[node name="GuardingButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-horizontal_scroll_mode = 0
+text = "Guarding (Gain XP)"
 
-[node name="MinigameList" type="VBoxContainer" parent="UI/PanelContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-
-[node name="Homunculicious_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
-custom_minimum_size = Vector2(500, 130)
-layout_mode = 2
-icon = ExtResource("2_nvsrq")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Feed_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
-custom_minimum_size = Vector2(100, 80)
-layout_mode = 2
-icon = ExtResource("3_0h5ni")
-
-[node name="Clean_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
-layout_mode = 2
-icon = ExtResource("2_nvsrq")
-
-[node name="Guard_Button" type="Button" parent="UI/PanelContainer/ScrollContainer/MinigameList"]
-layout_mode = 2
-icon = ExtResource("4_1rcnu")
-
-[node name="NavPanel" type="PanelContainer" parent="UI"]
-anchors_preset = -1
-anchor_top = 0.292
-anchor_right = 0.035
-anchor_bottom = 0.347
-offset_left = 175.0
-offset_top = 247.784
-offset_right = 1027.68
-offset_bottom = 364.144
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BottomScroll" type="ScrollContainer" parent="UI/NavPanel"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-horizontal_scroll_mode = 2
-vertical_scroll_mode = 0
-
-[node name="QueueHBox" type="HBoxContainer" parent="UI/NavPanel/BottomScroll"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-
-[node name="Button" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(80, 60)
-layout_mode = 2
-size_flags_vertical = 3
-icon = ExtResource("5_mmyos")
-
-[node name="Button2" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(160, 100)
-layout_mode = 2
-icon = ExtResource("5_mmyos")
-
-[node name="Button3" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(160, 100)
-layout_mode = 2
-icon = ExtResource("5_mmyos")
-
-[node name="Button4" type="Button" parent="UI/NavPanel/BottomScroll/QueueHBox"]
-custom_minimum_size = Vector2(170, 100)
-layout_mode = 2
-icon = ExtResource("5_mmyos")
-
-[node name="Play" type="Button" parent="UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -144.0
-offset_top = -54.0
-offset_right = -28.0
-offset_bottom = -3.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 10
-size_flags_vertical = 10
-theme_override_colors/icon_normal_color = Color(0.933333, 0.941176, 1, 0.909804)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-icon = ExtResource("6_e4pb7")
-
-[node name="TopBar" type="HBoxContainer" parent="UI"]
-offset_right = 1115.0
-offset_bottom = 62.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="BackButton" type="Button" parent="UI/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = SubResource("Theme_8ileu")
-icon = ExtResource("9_uwjpn")
-
-[node name="TopSpacer" type="Control" parent="UI/TopBar"]
-custom_minimum_size = Vector2(190, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.87
-
-[node name="TitleLabel" type="Label" parent="UI/TopBar"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.374986, 0.137605, 0.875, 1)
-theme_override_colors/font_shadow_color = Color(0.982343, 0.982342, 0.982342, 1)
-theme_override_colors/font_outline_color = Color(0.958961, 0.955032, 0.999983, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = -1
-theme_override_constants/outline_size = 18
-theme_override_constants/shadow_outline_size = 18
-theme_override_fonts/font = SubResource("SystemFont_ng8qe")
-theme_override_font_sizes/font_size = 50
-text = "Job Minigames"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TopSpacer2" type="Control" parent="UI/TopBar"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.87
-
-[node name="SettingsButton" type="TextureButton" parent="UI/TopBar"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_stretch_ratio = 0.0
-texture_normal = ExtResource("10_l2c64")
-
-[connection signal="pressed" from="UI/TopBar/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="UI/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GuardingButton" to="." method="_on_guarding_button_pressed"]
