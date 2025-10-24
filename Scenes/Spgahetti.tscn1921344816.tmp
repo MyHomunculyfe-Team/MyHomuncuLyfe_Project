@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://byypldmnmbw01"]
+
+[ext_resource type="Script" uid="uid://bchkoarnsh5e6" path="res://Scripts/spgahetti.gd" id="1_aats6"]
+[ext_resource type="Texture2D" uid="uid://dcuswi8w361k2" path="res://Assets/fonts/homunc food.png" id="2_86dqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmgae"]
+size = Vector2(497.115, 157.814)
+
+[node name="Spaghetti" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-71, -14)
+scale = Vector2(0.126731, 0.126731)
+texture = ExtResource("2_86dqb")
+script = ExtResource("1_aats6")
+
+[node name="Button" type="Button" parent="Sprite2D"]
+offset_left = -252.503
+offset_top = -55.2351
+offset_right = -190.503
+offset_bottom = -35.2351
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-71.5, -11)
+scale = Vector2(0.126731, 0.126731)
+shape = SubResource("RectangleShape2D_hmgae")

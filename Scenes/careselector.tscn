@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5riiuadeo50v"]
+
+[ext_resource type="Script" uid="uid://bg0ohurhhb62x" path="res://Scripts/careselector.gd" id="1_rqqmw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqqmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HungerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Hunger: 50"
+
+[node name="HappinessLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Happiness: 70"
+
+[node name="EnergyLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Energy: 80"
+
+[node name="FeedButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Feed"
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="RestButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rest"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/FeedButton" to="." method="_on_feed_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ux0mlc2lci42"]
+
+[ext_resource type="Texture2D" uid="uid://cjurrn0lwolg7" path="res://Assets/platforms.png" id="1_n6c8x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jn48"]
+size = Vector2(30, 8)
+
+[node name="Pool" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n6c8x")
+region_enabled = true
+region_rect = Rect2(17, 49, 30, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5jn48")
