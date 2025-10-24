@@ -1,6 +1,6 @@
 extends Node2D
 
-const PetStats = preload("res://scripts/PetStats.gd")
+#const PetStats = preload("res://scripts/PetStats.gd")
 
 @onready var pet_name_label = $UI/PanelContainer/VBox/PetNameLabel
 @onready var happiness_bar  = $UI/PanelContainer/VBox/Row_Happiness/HappinessBar

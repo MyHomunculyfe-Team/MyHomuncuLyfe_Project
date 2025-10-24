@@ -1,17 +1,5 @@
 extends Node2D
 
-# --- Minigame Data (Name + Scene Path) ---
-var minigame_data = {
-	"Homunculicious": "res://scenes/homuncu-licious.tscn",
-	"Feed": "res://scenes/homuncu-feasting.tscn",
-	"Clean": "res://scenes/homuncu-cleaning.tscn",
-	"Guard": "res://scenes/homunc-employed.tscn",
-}
-
-# --- Dynamic queue state ---
-var minigame_queue: Array = []
-var current_index: int = 0
-
 # --- Cached nodes ---
 @onready var queue_hbox = $UI/NavPanel/BottomScroll/QueueHBox
 @onready var minigame_list = $UI/PanelContainer/ScrollContainer/MinigameList
@@ -32,7 +20,6 @@ func _ready():
 		button.disabled = true
 		button.connect("pressed", Callable(self, "_on_queue_button_pressed").bind(button))
 
-
 # =====================================================
 # 📜 MENU BUTTONS — Add minigame to queue
 # =====================================================
@@ -41,7 +28,7 @@ func _on_minigame_pressed(game_name: String):
 		if button.text == "":
 			button.text = game_name
 			button.disabled = false
-			minigame_queue.append(game_name)
+			GameManager.add_to_queue(game_name)
 			print("✅ Added:", game_name)
 			return
 	print("⚠️ Queue full! Remove one to add new.")
@@ -56,37 +43,14 @@ func _on_queue_button_pressed(button: Button):
 		print("🗑️ Removed:", game_name)
 		button.text = ""
 		button.disabled = true
-		minigame_queue.erase(game_name)
-
+		GameManager.remove_from_queue(game_name)
 
 # =====================================================
 # ▶️ PLAY BUTTON — Run queued minigames
 # =====================================================
 func _on_play_pressed():
-	if minigame_queue.is_empty():
-		print("⚠️ No minigames in queue!")
-		return
-
-	print("🎮 Starting queued minigames...")
-	current_index = 0
-	_play_next_minigame()
-
-
-func _play_next_minigame():
-	if current_index >= minigame_queue.size():
-		print("✅ All minigames finished! Returning to Care Selection.")
-		get_tree().change_scene_to_file("res://scenes/care_selection.tscn")
-		return
-
-	var current_game = minigame_queue[current_index]
-	var path = minigame_data.get(current_game, "")
-	print(path)
-	if path != "":
-		print("▶️ Loading:", current_game)
-		get_tree().change_scene_to_file(path)
-	else:
-		print("⚠️ Scene not found for", current_game)
-		
+	GameManager.start_queue()
+	
 # =====================================================
 # ⚙️ SETTINGS & BACK BUTTONS
 # =====================================================
@@ -95,7 +59,7 @@ func _on_settings_button_pressed():
 
 
 func _on_back_button_pressed(): 
-	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main.tscn")
 
 
 
