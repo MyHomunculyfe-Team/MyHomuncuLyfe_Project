@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://h4xklox8sx54"]
+
+[ext_resource type="Script" uid="uid://hx63ehimblxc" path="res://Scripts/movethatburger.gd" id="1_pbhm7"]
+[ext_resource type="Texture2D" uid="uid://dcuswi8w361k2" path="res://Assets/homunc food.png" id="2_kijhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbhm7"]
+size = Vector2(514.574, 51.8563)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-121, -91)
+scale = Vector2(0.250693, 0.250693)
+texture = ExtResource("2_kijhj")
+script = ExtResource("1_pbhm7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Button" type="Button" parent="Area2D"]
+offset_left = -243.326
+offset_top = -27.9226
+offset_right = 254.674
+offset_bottom = 100.077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.97791, -11.9668)
+shape = SubResource("RectangleShape2D_pbhm7")
+
+[connection signal="button_down" from="Area2D/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Area2D/Button" to="." method="_on_button_button_up"]
