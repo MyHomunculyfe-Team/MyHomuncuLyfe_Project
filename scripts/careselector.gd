@@ -62,7 +62,7 @@ func _on_queue_button_pressed(button: Button):
 # =====================================================
 # ▶️ PLAY BUTTON — Run queued minigames
 # =====================================================
-func _on_Play_pressed():
+func _on_play_pressed():
 	if minigame_queue.is_empty():
 		print("⚠️ No minigames in queue!")
 		return
@@ -80,6 +80,7 @@ func _play_next_minigame():
 
 	var current_game = minigame_queue[current_index]
 	var path = minigame_data.get(current_game, "")
+	print(path)
 	if path != "":
 		print("▶️ Loading:", current_game)
 		get_tree().change_scene_to_file(path)

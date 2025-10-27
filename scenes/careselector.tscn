@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqpxb8j7p8bm2"]
 
-[ext_resource type="Texture2D" uid="uid://dkum5w7f2sies" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
+[ext_resource type="Texture2D" uid="uid://c62e6f4qle3c6" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
 [ext_resource type="Script" uid="uid://bb4ddjyurf4pa" path="res://scripts/careselector.gd" id="1_u4n15"]
-[ext_resource type="Texture2D" uid="uid://bvbuxl4qox0eg" path="res://assets/icons/Group 14.png" id="2_u4n15"]
-[ext_resource type="Texture2D" uid="uid://ct7v2loji3gx8" path="res://assets/icons/Group 16.png" id="3_16hxn"]
-[ext_resource type="Texture2D" uid="uid://dt8jes0wo3tnd" path="res://assets/icons/Group 15.png" id="4_igj00"]
-[ext_resource type="Texture2D" uid="uid://btko1pmu4lmyg" path="res://assets/icons/Group 19.png" id="5_du1i2"]
-[ext_resource type="Texture2D" uid="uid://cciwuk1b0qrka" path="res://assets/icons/PLAY.png" id="6_75sxh"]
-[ext_resource type="Texture2D" uid="uid://clq7ln4wejax3" path="res://assets/icons/Back.png" id="7_oya68"]
-[ext_resource type="Texture2D" uid="uid://dusqxyw4me0bm" path="res://assets/icons/Settings.png" id="8_fxaq4"]
+[ext_resource type="Texture2D" uid="uid://c0nydqvhv0184" path="res://assets/icons/Group 14.png" id="2_u4n15"]
+[ext_resource type="Texture2D" uid="uid://b7ov8t8gmt4n2" path="res://assets/icons/Group 16.png" id="3_16hxn"]
+[ext_resource type="Texture2D" uid="uid://b0t445wgmswgt" path="res://assets/icons/Group 15.png" id="4_igj00"]
+[ext_resource type="Texture2D" uid="uid://ys5fw5bcxbyt" path="res://assets/icons/Group 19.png" id="5_du1i2"]
+[ext_resource type="Texture2D" uid="uid://doi3twr1g4phv" path="res://assets/icons/PLAY.png" id="6_75sxh"]
+[ext_resource type="Texture2D" uid="uid://do8m2kshmws67" path="res://assets/icons/Back.png" id="7_oya68"]
+[ext_resource type="Texture2D" uid="uid://bwkr38fu5iowe" path="res://assets/icons/Settings.png" id="8_fxaq4"]
 
 [sub_resource type="Theme" id="Theme_8nyr6"]
 
