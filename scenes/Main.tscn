@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fbwwlhuwyjnf"]
+[gd_scene load_steps=10 format=3 uid="uid://fbwwlhuwyjnf"]
 
 [ext_resource type="Texture2D" uid="uid://cc3vrw8c61so2" path="res://assets/Homunc.png" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://ov71pqi3oyu6" path="res://scripts/Main.gd" id="1_rvslj"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d1h6fxflvyno3" path="res://assets/icons/Care.png" id="6_q8u5g"]
 [ext_resource type="Texture2D" uid="uid://c08lufuank2u0" path="res://assets/icons/Items.png" id="7_lhr70"]
 [ext_resource type="Texture2D" uid="uid://dusqxyw4me0bm" path="res://assets/icons/Settings.png" id="8_jlsqs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlsqs"]
+bg_color = Color(0.945098, 0.360784, 0.203922, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rvslj")
@@ -34,6 +37,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Ramonculus
 "
+
+[node name="PetNameEdit" type="LineEdit" parent="UI/PanelContainer/VBox"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Enter new name...."
 
 [node name="Row_Happiness" type="HBoxContainer" parent="UI/PanelContainer/VBox"]
 layout_mode = 2
@@ -181,3 +190,14 @@ offset_bottom = 92.0
 grow_horizontal = 0
 icon = ExtResource("8_jlsqs")
 icon_alignment = 1
+
+[node name="DeformityPopup" type="AcceptDialog" parent="UI"]
+position = Vector2i(0, 36)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlsqs")
+
+[node name="DeformityLabel" type="Label" parent="UI/DeformityPopup"]
+offset_right = 100.0
+offset_bottom = 59.0
+
+[connection signal="gui_input" from="UI/PanelContainer/VBox/PetNameLabel" to="." method="_on_pet_name_label_gui_input"]
+[connection signal="text_submitted" from="UI/PanelContainer/VBox/PetNameEdit" to="." method="_on_pet_name_edit_text_submitted"]
