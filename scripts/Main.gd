@@ -8,8 +8,8 @@ const PetStats = preload("res://scripts/PetStats.gd")
 @onready var hunger_bar     = $UI/PanelContainer/VBox/Row_Hunger/HungerBar
 @onready var hygiene_bar    = $UI/PanelContainer/VBox/Row_Hygiene/HygieneBar
 
-@onready var deformity_popup = $DeformityPopup
-@onready var deformity_label = $DeformityPopup/DeformityLabel
+@onready var deformity_popup = $UI/DeformityPopup
+@onready var deformity_label = $UI/DeformityPopup/DeformityLabel
 
 var stats := PetStats.new()
 
@@ -29,6 +29,10 @@ func _ready() -> void:
 	# Update UI whenever stats change
 	stats.stats_changed.connect(update_ui)
 	update_ui()
+	_on_deformity_warning("hunger")
+
+	
+
 
 
 func update_ui() -> void:
@@ -45,6 +49,7 @@ func _process(delta: float) -> void:
 
 
 func _on_deformity_warning(stat_name: String) -> void:
+	
 	if deformity_popup and deformity_label:
 		deformity_label.text = "⚠️ Warning: %s stat is critically high (≥10)!" % stat_name
 		deformity_popup.show()
@@ -70,3 +75,7 @@ func _on_pet_name_edit_text_submitted(new_text: String) -> void:
 	pet_name_label.text = stats.pet_name
 	pet_name_label.visible = true
 	pet_name_edit.visible = false
+
+
+func _on_ok_button_pressed() -> void:
+	deformity_popup.hide()
