@@ -1,27 +1,27 @@
 [gd_scene load_steps=32 format=3 uid="uid://fbwwlhuwyjnf"]
 
 [ext_resource type="Script" uid="uid://ov71pqi3oyu6" path="res://scripts/Main.gd" id="1_2ofn6"]
-[ext_resource type="Texture2D" uid="uid://bx8h8bd8nwc3y" path="res://assets/Homunc.png" id="1_elqb8"]
-[ext_resource type="Texture2D" uid="uid://lubro3g0lhbv" path="res://assets/icons/mainmenu/Home.png" id="2_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://c1g1f5ay1qlx5" path="res://assets/Homunc.png" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://b8jy70t6j0a7l" path="res://assets/icons/mainmenu/Home.png" id="2_2ofn6"]
 [ext_resource type="Script" uid="uid://gb15o2hwev3e" path="res://scripts/Pet.gd" id="3_0bbpv"]
-[ext_resource type="FontFile" uid="uid://pvv8qmw77yu" path="res://assets/fonts/Montserrat-Black.ttf" id="6_bjd11"]
-[ext_resource type="Texture2D" uid="uid://d0sulnn8o0js0" path="res://assets/icons/mainmenu/Inner_boarder.png" id="7_2ofn6"]
-[ext_resource type="Texture2D" uid="uid://chs16hpy68ntl" path="res://assets/icons/mainmenu/Stats_boarder.png" id="8_xa025"]
-[ext_resource type="Texture2D" uid="uid://dsdtk6bukeaw2" path="res://assets/icons/mainmenu/track.png" id="10_2ofn6"]
-[ext_resource type="Texture2D" uid="uid://dgm4h6flq8e7y" path="res://assets/icons/mainmenu/fill_green.png" id="11_36rkl"]
-[ext_resource type="Texture2D" uid="uid://bukcac134mp1x" path="res://assets/icons/mainmenu/fill_yellow.png" id="12_fs0b5"]
-[ext_resource type="Texture2D" uid="uid://c3ypg7es5t4if" path="res://assets/icons/mainmenu/fill_red.png" id="13_ma7h6"]
-[ext_resource type="Texture2D" uid="uid://cuhp6ttk8jh1l" path="res://assets/icons/mainmenu/Nav_gradient_background.png" id="14_e2s0e"]
-[ext_resource type="Texture2D" uid="uid://dhg8tgkd7y5va" path="res://assets/icons/mainmenu/Nav_background_pattern.png" id="15_gsxep"]
-[ext_resource type="Texture2D" uid="uid://bxrqn22c35lak" path="res://assets/icons/mainmenu/Job_Button.png" id="16_v0vrg"]
-[ext_resource type="Texture2D" uid="uid://61a1gx8b0q7e" path="res://assets/icons/mainmenu/Job_Icon.png" id="17_dg70y"]
-[ext_resource type="Texture2D" uid="uid://d2ln60w6534vp" path="res://assets/icons/mainmenu/Shop_Button.png" id="18_pnhog"]
-[ext_resource type="Texture2D" uid="uid://rrol648iqh4i" path="res://assets/icons/mainmenu/bag.png" id="19_2c4at"]
-[ext_resource type="Texture2D" uid="uid://lfuy51g5b345" path="res://assets/icons/mainmenu/Care_Button.png" id="20_g6wdg"]
-[ext_resource type="Texture2D" uid="uid://cwdkfce1e63lw" path="res://assets/icons/mainmenu/Care_Icon.png" id="21_hq6as"]
-[ext_resource type="Texture2D" uid="uid://bxy7lt6jdq2o" path="res://assets/icons/mainmenu/Item_Button.png" id="22_kxyth"]
-[ext_resource type="Texture2D" uid="uid://cmighl6jftaru" path="res://assets/icons/mainmenu/Items_Icon.png" id="23_cobve"]
-[ext_resource type="Texture2D" uid="uid://b41pe7x35b1a6" path="res://assets/icons/mainmenu/Settings.png" id="24_2ofn6"]
+[ext_resource type="FontFile" uid="uid://b8s3xkhm2m4lm" path="res://assets/fonts/Montserrat-Black.ttf" id="6_bjd11"]
+[ext_resource type="Texture2D" uid="uid://dfkcmr4pa6ok8" path="res://assets/icons/mainmenu/Inner_boarder.png" id="7_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://bktcdap1ik56i" path="res://assets/icons/mainmenu/Stats_boarder.png" id="8_xa025"]
+[ext_resource type="Texture2D" uid="uid://wi30kp42jvo4" path="res://assets/icons/mainmenu/track.png" id="10_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://b6bfb0nijy0pc" path="res://assets/icons/mainmenu/fill_green.png" id="11_36rkl"]
+[ext_resource type="Texture2D" uid="uid://xfh3arr4n6um" path="res://assets/icons/mainmenu/fill_yellow.png" id="12_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://drq2moc1ee7ri" path="res://assets/icons/mainmenu/fill_red.png" id="13_ma7h6"]
+[ext_resource type="Texture2D" uid="uid://dcjvpy54ytuww" path="res://assets/icons/mainmenu/Nav_gradient_background.png" id="14_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://dluog8vdmakjn" path="res://assets/icons/mainmenu/Nav_background_pattern.png" id="15_gsxep"]
+[ext_resource type="Texture2D" uid="uid://dtsvakdp17ugs" path="res://assets/icons/mainmenu/Job_Button.png" id="16_v0vrg"]
+[ext_resource type="Texture2D" uid="uid://cdurlmjwd2o6k" path="res://assets/icons/mainmenu/Job_Icon.png" id="17_dg70y"]
+[ext_resource type="Texture2D" uid="uid://ck7piqh1k7inh" path="res://assets/icons/mainmenu/Shop_Button.png" id="18_pnhog"]
+[ext_resource type="Texture2D" uid="uid://ua1vah46c8e4" path="res://assets/icons/mainmenu/bag.png" id="19_2c4at"]
+[ext_resource type="Texture2D" uid="uid://c46flmmca5nxq" path="res://assets/icons/mainmenu/Care_Button.png" id="20_g6wdg"]
+[ext_resource type="Texture2D" uid="uid://jdbx71flm7pq" path="res://assets/icons/mainmenu/Care_Icon.png" id="21_hq6as"]
+[ext_resource type="Texture2D" uid="uid://tqfsk5pbmimh" path="res://assets/icons/mainmenu/Item_Button.png" id="22_kxyth"]
+[ext_resource type="Texture2D" uid="uid://de3f1vwjn7n0l" path="res://assets/icons/mainmenu/Items_Icon.png" id="23_cobve"]
+[ext_resource type="Texture2D" uid="uid://betg7dwxh37ks" path="res://assets/icons/mainmenu/Settings.png" id="24_2ofn6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1iba3"]
 animations = [{
@@ -387,15 +387,19 @@ expand_mode = 1
 [node name="Settings" type="Button" parent="UI"]
 custom_minimum_size = Vector2(60, 60)
 anchors_preset = -1
-anchor_left = 1.2
-anchor_top = 0.005
-anchor_right = 1.2
-anchor_bottom = 0.005
-offset_left = -90.0
-offset_top = -0.12
-offset_bottom = 89.88
+anchor_left = 0.981
+anchor_top = 0.017
+anchor_right = 0.981
+anchor_bottom = 0.017
+offset_left = -89.6401
+offset_top = -0.408001
+offset_right = 0.359863
+offset_bottom = 89.592
 grow_horizontal = 0
 icon = ExtResource("24_2ofn6")
 icon_alignment = 1
+metadata/_edit_group_ = true
 
+[connection signal="button_down" from="UI/NavPanel/Buttons/Btn_Care" to="." method="_on_btn_care_button_down"]
 [connection signal="pressed" from="UI/NavPanel/Buttons/Btn_Items" to="." method="_on_btn_items_pressed"]
+[connection signal="pressed" from="UI/Settings" to="." method="_on_settings_pressed"]

@@ -30,16 +30,13 @@ const P_BUTTONS_WRAP  := ^"UI/NavPanel/Buttons"
 
 func _ready() -> void:
 	print("[Main] _ready()")
-
 	# Show stats now 
 	if stats_panel:
 		stats_panel.visible = true
-
 	# Backgrounds must not eat mouse
 	if bg_gradient: bg_gradient.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if bg_pattern:  bg_pattern.mouse_filter  = Control.MOUSE_FILTER_IGNORE
 	if buttons_wrap: buttons_wrap.mouse_filter = Control.MOUSE_FILTER_PASS
-
 	# Ensure Items button is clickable + connected
 	if btn_items:
 		_ensure_clickable_button(btn_items)
@@ -49,11 +46,13 @@ func _ready() -> void:
 			btn_items.gui_input.connect(_dbg_items_gui_input)
 	else:
 		push_error("[Main] Btn_Items NOT found at: %s" % P_BTN_ITEMS)
-
-	# hook Game autoload if present
-	if Engine.has_singleton("Game") and "stats_changed" in Game:
-		Game.stats_changed.connect(_refresh_stats)
+		
+	
 	_refresh_stats()
+
+func _process(delta):
+	_refresh_stats()
+
 
 func _ensure_clickable_button(b: BaseButton) -> void:
 	b.z_index = 100
@@ -81,13 +80,10 @@ func _unhandled_input(e: InputEvent) -> void:
 
 # Update UI from Game (safe-guards)
 func _refresh_stats() -> void:
-	if not Engine.has_singleton("Game"):
-		return
-	if "pet" in Game:
-		if lbl_name:      lbl_name.text = Game.pet.get("name", "Pet")
-		if bar_happiness: bar_happiness.value = int(Game.pet.get("happiness", 0.0) * 100.0)
-		if bar_hunger:    bar_hunger.value    = int(Game.pet.get("hunger", 0.0) * 100.0)
-		if bar_hygiene:   bar_hygiene.value   = int(Game.pet.get("hygiene", 0.0) * 100.0)
+	if lbl_name:      lbl_name.text = GameManager.pet_name
+	if bar_happiness: bar_happiness.value = int(GameManager.happiness)
+	if bar_hunger:    bar_hunger.value    = int(GameManager.hunger)
+	if bar_hygiene:   bar_hygiene.value   = int(GameManager.hygine)
 
 # Editor-connected or fallback-connected handler
 func _on_btn_items_pressed() -> void:
@@ -95,3 +91,11 @@ func _on_btn_items_pressed() -> void:
 	var err := get_tree().change_scene_to_file(inventory_scene)
 	if err != OK:
 		push_error("Failed to change scene to %s (err %d)" % [inventory_scene, err])
+
+
+func _on_btn_care_button_down() -> void:
+	get_tree().change_scene_to_file("res://scenes/careselector.tscn")
+
+
+func _on_settings_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")

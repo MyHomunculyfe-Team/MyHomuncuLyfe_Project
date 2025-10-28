@@ -1,27 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://isp6dn3q38wd"]
+[gd_scene load_steps=9 format=3 uid="uid://isp6dn3q38wd"]
 
-[ext_resource type="Texture2D" uid="uid://cuum04wvs0b1y" path="res://assets/Settingsbg.png" id="1_f4mfi"]
-[ext_resource type="Texture2D" uid="uid://bebllohp087ou" path="res://assets/Settings.png" id="2_es4n0"]
-[ext_resource type="Texture2D" uid="uid://dftnaefpv1ap5" path="res://assets/Back.png" id="3_gis3k"]
-[ext_resource type="Texture2D" uid="uid://h327j2jweten" path="res://assets/BackHover.png" id="4_83j8s"]
-[ext_resource type="Texture2D" uid="uid://cat34vdc3jn3n" path="res://assets/Savebutton.png" id="6_4ppmf"]
-[ext_resource type="Texture2D" uid="uid://bio7wsxvt4snu" path="res://assets/Savebuttonhover .png" id="7_uhhto"]
-[ext_resource type="Texture2D" uid="uid://ds8dtxi41xcuc" path="res://assets/Loadbutton.png" id="8_1g033"]
-[ext_resource type="Texture2D" uid="uid://b5ddokl6hdauj" path="res://assets/Loadbuttonhover.png" id="9_01roj"]
+[ext_resource type="Texture2D" uid="uid://df32nnt5xgp56" path="res://assets/Settingsbg.png" id="1_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://d3a8yshp8rtci" path="res://assets/Back.png" id="3_gis3k"]
+[ext_resource type="Texture2D" uid="uid://cxttjugdnaff1" path="res://assets/BackHover.png" id="4_83j8s"]
+[ext_resource type="Texture2D" uid="uid://dde6gmhbv6mv6" path="res://assets/Savebutton.png" id="6_4ppmf"]
+[ext_resource type="Texture2D" uid="uid://bknmtmm6mhecf" path="res://assets/Savebuttonhover .png" id="7_uhhto"]
+[ext_resource type="Texture2D" uid="uid://buti5ocu2k7aq" path="res://assets/Loadbutton.png" id="8_1g033"]
+[ext_resource type="Texture2D" uid="uid://c34g2x85xgypp" path="res://assets/Loadbuttonhover.png" id="9_01roj"]
 
 [sub_resource type="GDScript" id="GDScript_gjs24"]
+script/source = "extends Node2D
 
-[node name="settings" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/Main.tscn\")
+	
+func _on_save_data_pressed() -> void:
+	SaveLoad.save({\"Happiness\":GameManager.happiness, \"Hunger\":GameManager.hunger, \"Hygine\":GameManager.hygine, \"Pet_name\":GameManager.pet_name,})
+
+
+func _on_load_data_pressed() -> void:
+	print(\"clicked\")
+	SaveLoad.reset()
+"
+
+[node name="settings" type="Node2D"]
 script = SubResource("GDScript_gjs24")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 129.0
 offset_top = 8.0
 offset_right = 1394.0
@@ -30,12 +35,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_f4mfi")
 stretch_mode = 4
 
-[node name="Settings" type="Sprite2D" parent="."]
-position = Vector2(567, 76)
-texture = ExtResource("2_es4n0")
-
 [node name="Back" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 146.0
 offset_top = 24.0
 offset_right = 405.0
@@ -46,7 +46,6 @@ texture_pressed = ExtResource("4_83j8s")
 texture_hover = ExtResource("4_83j8s")
 
 [node name="Save Data" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 331.0
 offset_top = 196.0
 offset_right = 795.0
@@ -56,7 +55,6 @@ texture_pressed = ExtResource("7_uhhto")
 texture_hover = ExtResource("7_uhhto")
 
 [node name="Load Data" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 331.0
 offset_top = 340.0
 offset_right = 795.0
@@ -66,3 +64,5 @@ texture_pressed = ExtResource("9_01roj")
 texture_hover = ExtResource("9_01roj")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Save Data" to="." method="_on_save_data_pressed"]
+[connection signal="pressed" from="Load Data" to="." method="_on_load_data_pressed"]

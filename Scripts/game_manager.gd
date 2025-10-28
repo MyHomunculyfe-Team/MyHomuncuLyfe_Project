@@ -18,4 +18,5 @@ func lose_life():
 	score_label.text = "Tries: " + str(tries) + "\nScore: " + str(score)
 	
 	if tries == 0:
-		GameManager.report_minigame_finished(10)
+		GameManager.add_hygine(20)
+		GameManager.report_minigame_finished()
