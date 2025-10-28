@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://fbwwlhuwyjnf"]
 
-[ext_resource type="Texture2D" uid="uid://b7uivqqmiqcil" path="res://assets/Homunc.png" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://c1g1f5ay1qlx5" path="res://assets/Homunc.png" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://ov71pqi3oyu6" path="res://scripts/Main.gd" id="1_rvslj"]
 [ext_resource type="Script" uid="uid://gb15o2hwev3e" path="res://scripts/Pet.gd" id="3_0bbpv"]
-[ext_resource type="Texture2D" uid="uid://tgq1ykkgdgin" path="res://assets/icons/Job.png" id="4_nxtc6"]
-[ext_resource type="Texture2D" uid="uid://clylg8xeogavr" path="res://assets/icons/Shop.png" id="5_jlsqs"]
-[ext_resource type="Texture2D" uid="uid://cith5b7bo3rqd" path="res://assets/icons/Care.png" id="6_q8u5g"]
-[ext_resource type="Texture2D" uid="uid://c1kywak6jdqxj" path="res://assets/icons/Items.png" id="7_lhr70"]
-[ext_resource type="Texture2D" uid="uid://bwkr38fu5iowe" path="res://assets/icons/Settings.png" id="8_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://82y0fms80gj5" path="res://assets/icons/Job.png" id="4_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://c6pjndn3hckby" path="res://assets/icons/Shop.png" id="5_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://qdlwuuyp7gs2" path="res://assets/icons/Care.png" id="6_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://bqkchs76ou4ai" path="res://assets/icons/Items.png" id="7_lhr70"]
+[ext_resource type="Texture2D" uid="uid://d4l5qv3eekh8b" path="res://assets/icons/Settings.png" id="8_jlsqs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rvslj")

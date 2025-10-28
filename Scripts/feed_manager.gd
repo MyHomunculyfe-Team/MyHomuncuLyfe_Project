@@ -25,4 +25,4 @@ func _on_timer_timeout() -> void:
 		if time_left > 0:
 			timer.start()
 		else:
-			pass #end game here
+			GameManager.report_minigame_finished(10) #end game here

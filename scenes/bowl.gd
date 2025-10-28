@@ -12,9 +12,6 @@ func _ready():
 	area.body_entered.connect(_on_body_entered)
 	#update the fill visuals to represent the initial fill state
 	_update_skin()
-	
-	if fill_state == max_fill:
-		GameManager.report_minigame_finished(4)
 
 #When food touches body
 func _on_body_entered(body: CharacterBody2D):
@@ -22,6 +19,8 @@ func _on_body_entered(body: CharacterBody2D):
 		if fill_state < max_fill:
 			fill_state += 1
 			_update_skin()
+		if fill_state == max_fill:
+			GameManager.report_minigame_finished(4)
 
 func _update_skin():
 		sprite.frame = fill_state

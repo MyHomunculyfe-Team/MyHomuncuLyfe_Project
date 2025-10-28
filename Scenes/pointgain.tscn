@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c11ukfkieut25"]
 
-[ext_resource type="Script" uid="uid://diqab83ixyjg8" path="res://Scripts/pointgain.gd" id="1_lkl6v"]
+[ext_resource type="Script" uid="uid://diqab83ixyjg8" path="res://scripts/pointgain.gd" id="1_lkl6v"]
 
 [node name="Pointgain" type="Area2D"]
 collision_mask = 2

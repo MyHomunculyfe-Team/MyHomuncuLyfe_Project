@@ -2,9 +2,9 @@ extends Node
 
 # --- Minigame data ---
 var minigame_data = {
-	"Homunculicious": "res://scenes/homuncu-licious.tscn",
-	"Feed": "res://scenes/homuncu-feasting.tscn",
-	"Clean": "res://scenes/homuncu-cleaning.tscn",
+	"Homuncu-feasting": "res://scenes/homuncu-feasting.tscn",
+	"Homuncu-licious": "res://scenes/feed_game.tscn",
+	"Homuncu-cleaning": "res://scenes/clean_game.tscn",
 	"Guard": "res://scenes/homunc-employed.tscn",
 }
 
@@ -42,7 +42,7 @@ func report_minigame_finished(points_earned: int):
 func _play_next():
 	if current_index >= minigame_queue.size():
 		print("✅ All minigames done! Total points:", total_points)
-		get_tree().change_scene_to_file("res://scenes/care_selection.tscn")
+		get_tree().change_scene_to_file("res://scenes/Main.tscn")
 		return
 
 	var name = minigame_queue[current_index]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blteictinmt3x"]
 
-[ext_resource type="Script" uid="uid://6lsg45enn1aa" path="res://Scripts/movethatspaghetti.gd" id="1_lfdqa"]
-[ext_resource type="Texture2D" uid="uid://ytb7tc2ms0p5" path="res://Assets/homunc box.png" id="2_lfdqa"]
+[ext_resource type="Script" uid="uid://6lsg45enn1aa" path="res://scripts/movethatspaghetti.gd" id="1_lfdqa"]
+[ext_resource type="Texture2D" uid="uid://ytb7tc2ms0p5" path="res://assets/homunc box.png" id="2_lfdqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mutfk"]
 size = Vector2(30, 32)
