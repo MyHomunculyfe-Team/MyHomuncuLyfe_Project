@@ -1,25 +1,28 @@
-[gd_scene load_steps=27 format=3 uid="uid://3v6kyklyts0u"]
+[gd_scene load_steps=31 format=3 uid="uid://ii8m07pcbyny"]
 
 [ext_resource type="Script" uid="uid://dwbbq0eniqwv8" path="res://scripts/inventory.gd" id="1_brsb2"]
-[ext_resource type="Texture2D" uid="uid://dtyy6bk3jhdxw" path="res://assets/icons/inventory/inv_blue_background.png" id="1_yyk2a"]
-[ext_resource type="Texture2D" uid="uid://qhvfgeu73qm8" path="res://assets/icons/inventory/inv_pattern_background.png" id="2_uae8j"]
-[ext_resource type="Texture2D" uid="uid://bwe5dtntpsh73" path="res://assets/icons/inventory/inv_panel.png" id="3_s887n"]
-[ext_resource type="FontFile" uid="uid://pvv8qmw77yu" path="res://assets/fonts/Montserrat-Black.ttf" id="4_g71ie"]
-[ext_resource type="Texture2D" uid="uid://3kks6s27vupb" path="res://assets/icons/inventory/inv_2nd_pattern_background.png" id="4_nq6oc"]
-[ext_resource type="Texture2D" uid="uid://c8w8ppiwjohyn" path="res://assets/icons/inventory/Money_Pill.png" id="5_sr8g6"]
-[ext_resource type="Texture2D" uid="uid://bn0womwjanpn4" path="res://assets/icons/inventory/Left_Arrow.png" id="6_k86sa"]
-[ext_resource type="StyleBox" uid="uid://cloehw61vy8be" path="res://assets/styles/sb_cat_selected.tres" id="7_40feg"]
+[ext_resource type="Texture2D" uid="uid://p3aje3qowob6" path="res://assets/icons/inventory/inv_blue_background.png" id="1_yyk2a"]
+[ext_resource type="Texture2D" uid="uid://bw8inowvere51" path="res://assets/icons/inventory/inv_pattern_background.png" id="2_uae8j"]
+[ext_resource type="Texture2D" uid="uid://bxu0rsxqxe6b" path="res://assets/icons/inventory/inv_panel.png" id="3_s887n"]
+[ext_resource type="FontFile" uid="uid://blhlh4a2ahqfu" path="res://assets/fonts/Montserrat-Black.ttf" id="4_g71ie"]
+[ext_resource type="Texture2D" uid="uid://gj2lglmn4a20" path="res://assets/icons/inventory/inv_2nd_pattern_background.png" id="4_nq6oc"]
+[ext_resource type="Texture2D" uid="uid://ci4q8lgrqkrwx" path="res://assets/icons/inventory/Money_Pill.png" id="5_sr8g6"]
+[ext_resource type="Texture2D" uid="uid://5dmu422yco26" path="res://assets/icons/inventory/Left_Arrow.png" id="6_k86sa"]
+[ext_resource type="StyleBox" uid="uid://goimmbje17xr" path="res://assets/styles/sb_cat_selected.tres" id="7_40feg"]
 [ext_resource type="StyleBox" uid="uid://blds1su0s7fi7" path="res://assets/styles/sb_cat_unselected.tres" id="8_tla8l"]
-[ext_resource type="Texture2D" uid="uid://cfe8ykiklvcvh" path="res://assets/icons/inventory/Brush_Icon.png" id="9_w24ly"]
-[ext_resource type="Texture2D" uid="uid://ib8spp4g6urv" path="res://assets/icons/inventory/Bone_Icon.png" id="10_ohgsq"]
-[ext_resource type="Texture2D" uid="uid://bymy831kiiugi" path="res://assets/icons/inventory/Shirt_Icon.png" id="11_j8d85"]
-[ext_resource type="Texture2D" uid="uid://4jajar8ok2m5" path="res://assets/icons/inventory/Ball_Icon.png" id="12_5mlvw"]
-[ext_resource type="Texture2D" uid="uid://dycmno07aldb8" path="res://assets/icons/inventory/Right_Arrow.png" id="13_jc13p"]
+[ext_resource type="Texture2D" uid="uid://blg6im704w8hq" path="res://assets/icons/inventory/comb.png" id="9_w24ly"]
+[ext_resource type="Texture2D" uid="uid://cp4oopx0fcq45" path="res://assets/icons/inventory/Bone_Icon.png" id="10_ohgsq"]
+[ext_resource type="Texture2D" uid="uid://j4l1niaxfnsx" path="res://assets/icons/inventory/Shirt_Icon.png" id="11_j8d85"]
+[ext_resource type="Texture2D" uid="uid://c07x1yhwmf1ro" path="res://assets/icons/inventory/Ball_Icon.png" id="12_5mlvw"]
+[ext_resource type="Texture2D" uid="uid://bt5w86s0a8i0f" path="res://assets/icons/inventory/Right_Arrow.png" id="13_jc13p"]
 [ext_resource type="StyleBox" uid="uid://bfaupntb2rbap" path="res://assets/styles/sb_slot_selected.tres" id="14_tla8l"]
 [ext_resource type="StyleBox" uid="uid://cmnsgbv4keh1f" path="res://assets/styles/sb_slot_normal.tres" id="15_w24ly"]
-[ext_resource type="Texture2D" uid="uid://cb7prnlxbpg7r" path="res://assets/icons/inventory/badge_normal.png" id="16_ohgsq"]
+[ext_resource type="Texture2D" uid="uid://wqdlg88tkjnd" path="res://assets/icons/inventory/badge_normal.png" id="16_ohgsq"]
 [ext_resource type="Script" uid="uid://dio7l3a2h7enp" path="res://scripts/itemslot.gd" id="16_w24ly"]
-[ext_resource type="Texture2D" uid="uid://03d3l1q71d4s" path="res://assets/icons/inventory/ribbon_normal.png" id="17_j8d85"]
+[ext_resource type="Texture2D" uid="uid://bp1h6w5amn50c" path="res://assets/icons/inventory/ribbon_normal.png" id="17_j8d85"]
+[ext_resource type="Texture2D" uid="uid://cl2u71w7kykuw" path="res://assets/icons/inventory/BackButton.png" id="20_ohgsq"]
+[ext_resource type="Texture2D" uid="uid://dfjnfb4rp2bj8" path="res://assets/icons/inventory/Item Description Box.png" id="21_5mlvw"]
+[ext_resource type="Texture2D" uid="uid://dgvurgx5ld0rl" path="res://assets/icons/inventory/use button.png" id="22_jc13p"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_iqxo6"]
 
@@ -34,6 +37,9 @@ font = ExtResource("4_g71ie")
 font_size = 32
 outline_size = 20
 outline_color = Color(0.47451, 0.113725, 0.113725, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iqxo6"]
+texture = ExtResource("21_5mlvw")
 
 [sub_resource type="LabelSettings" id="LabelSettings_p7iul"]
 font = ExtResource("4_g71ie")
@@ -50,14 +56,6 @@ offset_right = 239.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brsb2")
-path_prev = NodePath("MainPanel/CategoryBar/BtnPrev")
-path_next = NodePath("MainPanel/CategoryBar/BtnNext")
-path_care = NodePath("MainPanel/CategoryBar/BtnCare")
-path_food = NodePath("MainPanel/CategoryBar/BtnFood")
-path_clothes = NodePath("MainPanel/CategoryBar/BtnClothes")
-path_toys = NodePath("MainPanel/CategoryBar/BtnToys")
-grid_path = NodePath("MainPanel/ScrollItems/Padding/Grid")
-care_icon = ExtResource("9_w24ly")
 
 [node name="Background_blue" type="TextureRect" parent="."]
 layout_mode = 0
@@ -73,8 +71,8 @@ texture = ExtResource("2_uae8j")
 
 [node name="Background_pattern2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1440.0
+offset_bottom = 1024.0
 texture = ExtResource("4_nq6oc")
 
 [node name="MainPanel" type="NinePatchRect" parent="."]
@@ -84,10 +82,10 @@ anchor_left = -0.266
 anchor_top = 0.263
 anchor_right = -0.266
 anchor_bottom = 0.263
-offset_left = 495.04
-offset_top = -132.312
-offset_right = 1740.04
-offset_bottom = 677.688
+offset_left = 532.374
+offset_top = -126.312
+offset_right = 1777.37
+offset_bottom = 683.688
 texture = ExtResource("3_s887n")
 
 [node name="CategoryBar" type="HBoxContainer" parent="MainPanel"]
@@ -188,24 +186,17 @@ script = ExtResource("16_w24ly")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1"]
 layout_mode = 0
-offset_left = 64.334
+offset_left = 42.0
 offset_top = 45.0
-offset_right = 154.334
-offset_bottom = 140.0
-texture = ExtResource("9_w24ly")
+offset_right = 195.0
+offset_bottom = 159.0
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1"]
 layout_mode = 0
 offset_right = 248.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1/Badge"]
-layout_mode = 0
-offset_left = 120.0
-offset_top = -6.0
-offset_right = 225.0
-offset_bottom = 27.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -215,6 +206,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1/Badge"]
+layout_mode = 0
+offset_left = 141.334
+offset_top = -14.0
+offset_right = 214.334
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot1"]
 layout_mode = 0
@@ -246,24 +247,17 @@ script = ExtResource("16_w24ly")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02"]
 layout_mode = 0
-offset_left = 62.334
-offset_top = 55.0
-offset_right = 152.334
-offset_bottom = 132.0
-texture = ExtResource("9_w24ly")
+offset_left = 61.0
+offset_top = 28.0
+offset_right = 194.0
+offset_bottom = 159.0
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02/Badge"]
-layout_mode = 0
-offset_left = 127.334
-offset_top = -13.0
-offset_right = 231.334
-offset_bottom = 32.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -273,6 +267,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02/Badge"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = -16.0
+offset_right = 221.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot02"]
 layout_mode = 0
@@ -305,24 +309,17 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 60.0
-offset_right = 156.0
-offset_bottom = 131.0
-texture = ExtResource("9_w24ly")
+offset_left = 26.0
+offset_top = 25.0
+offset_right = 199.0
+offset_bottom = 172.0
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03/Badge"]
-layout_mode = 0
-offset_left = 119.334
-offset_top = -16.0
-offset_right = 235.334
-offset_bottom = 28.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -332,6 +329,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03/Badge"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -16.0
+offset_right = 218.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot03"]
 layout_mode = 0
@@ -364,24 +371,17 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04"]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 60.0
-offset_right = 160.0
-offset_bottom = 133.0
-texture = ExtResource("9_w24ly")
+offset_left = 25.0
+offset_top = 28.0
+offset_right = 201.0
+offset_bottom = 160.0
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04/Badge"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = -14.0
-offset_right = 239.0
-offset_bottom = 28.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -391,6 +391,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04/Badge"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = -14.0
+offset_right = 219.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot04"]
 layout_mode = 0
@@ -423,22 +433,16 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05"]
 layout_mode = 0
-offset_left = 56.334
-offset_top = 55.0
-offset_right = 162.334
-offset_bottom = 130.0
+offset_left = 44.0
+offset_top = 39.0
+offset_right = 184.0
+offset_bottom = 161.0
+expand_mode = 1
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05/Badge"]
-layout_mode = 0
-offset_left = 124.0
-offset_top = -12.0
-offset_right = 231.0
-offset_bottom = 29.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -448,6 +452,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05/Badge"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = -16.0
+offset_right = 216.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot05"]
 layout_mode = 0
@@ -480,22 +494,16 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06"]
 layout_mode = 0
-offset_left = 62.334
-offset_top = 64.0
-offset_right = 162.334
-offset_bottom = 135.0
+offset_left = 40.0
+offset_top = 46.0
+offset_right = 190.0
+offset_bottom = 154.0
+expand_mode = 1
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06/Badge"]
-layout_mode = 0
-offset_left = 119.334
-offset_top = -12.0
-offset_right = 233.334
-offset_bottom = 29.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -505,6 +513,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06/Badge"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = -14.0
+offset_right = 216.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot06"]
 layout_mode = 0
@@ -537,22 +555,16 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07"]
 layout_mode = 0
-offset_left = 56.334
-offset_top = 60.0
-offset_right = 152.334
-offset_bottom = 133.0
+offset_left = 15.0
+offset_top = 35.0
+offset_right = 187.0
+offset_bottom = 168.0
+expand_mode = 1
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07/Badge"]
-layout_mode = 0
-offset_left = 120.334
-offset_top = -14.0
-offset_right = 233.334
-offset_bottom = 28.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -562,6 +574,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07/Badge"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -14.0
+offset_right = 211.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot07"]
 layout_mode = 0
@@ -594,22 +616,16 @@ path_name = NodePath("BottomBar/ItemName")
 
 [node name="Icon" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08"]
 layout_mode = 0
-offset_left = 54.334
-offset_top = 57.0
-offset_right = 152.334
-offset_bottom = 136.0
+offset_left = 30.0
+offset_top = 36.0
+offset_right = 188.0
+offset_bottom = 155.0
+expand_mode = 1
 
 [node name="Badge" type="TextureRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08/Badge"]
-layout_mode = 0
-offset_left = 124.0
-offset_top = -12.0
-offset_right = 233.0
-offset_bottom = 30.0
 
 [node name="BadgeBG" type="NinePatchRect" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08/Badge"]
 custom_minimum_size = Vector2(100, 52)
@@ -619,6 +635,16 @@ offset_top = -16.0
 offset_right = 247.0
 offset_bottom = 36.0
 texture = ExtResource("16_ohgsq")
+
+[node name="Count" type="Label" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08/Badge"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -14.0
+offset_right = 212.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="BottomBar" type="MarginContainer" parent="MainPanel/ScrollItems/Padding/Grid/ItemSlot08"]
 layout_mode = 0
@@ -637,14 +663,80 @@ text = "Item Name"
 label_settings = SubResource("LabelSettings_5mlvw")
 horizontal_alignment = 1
 
+[node name="BackButton" type="TextureButton" parent="MainPanel"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -40.0
+offset_right = 129.0
+offset_bottom = 63.0
+texture_normal = ExtResource("20_ohgsq")
+
+[node name="ItemPanel" type="Panel" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.032
+anchor_bottom = 0.025
+offset_left = 165.0
+offset_top = 616.0
+offset_right = 1018.16
+offset_bottom = 837.75
+theme_override_styles/panel = SubResource("StyleBoxTexture_iqxo6")
+
+[node name="Name" type="Label" parent="MainPanel/ItemPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.045
+anchor_bottom = 0.095
+offset_left = 46.0
+offset_top = 29.0
+offset_right = 224.815
+offset_bottom = 59.01
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 20
+
+[node name="Owned" type="Label" parent="MainPanel/ItemPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.045
+anchor_bottom = 0.048
+offset_left = 675.0
+offset_top = 27.0
+offset_right = 803.815
+offset_bottom = 65.384
+theme_override_fonts/font = ExtResource("4_g71ie")
+theme_override_font_sizes/font_size = 20
+
+[node name="Desc" type="RichTextLabel" parent="MainPanel/ItemPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.045
+anchor_bottom = 0.165
+offset_left = 39.0
+offset_top = 84.0
+offset_right = 798.815
+offset_bottom = 127.07
+theme_override_colors/table_border = Color(0, 0.2, 0.4, 1)
+theme_override_fonts/normal_font = ExtResource("4_g71ie")
+theme_override_font_sizes/bold_italics_font_size = 30
+
+[node name="UseButton" type="Button" parent="MainPanel/ItemPanel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 678.0
+offset_top = 160.0
+offset_right = 925.0
+offset_bottom = 260.0
+icon = ExtResource("22_jc13p")
+flat = true
+
 [node name="TopBar" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(220, 64)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0631944
-anchor_top = 0.015625
-anchor_right = 0.978472
-anchor_bottom = 0.126953
+anchor_left = 0.0331384
+anchor_top = 0.00683594
+anchor_right = 0.842755
+anchor_bottom = 0.118164
 offset_right = 0.00012207
 theme_override_constants/separation = 12
 metadata/_edit_use_anchors_ = true
