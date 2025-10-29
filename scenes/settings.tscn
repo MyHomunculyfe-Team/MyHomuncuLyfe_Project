@@ -14,12 +14,12 @@ script/source = "extends Node2D
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file(\"res://scenes/Main.tscn\")
 	
+#saves data fetched from GameManager to user save file
 func _on_save_data_pressed() -> void:
 	SaveLoad.save({\"Happiness\":GameManager.happiness, \"Hunger\":GameManager.hunger, \"Hygine\":GameManager.hygine, \"Pet_name\":GameManager.pet_name,})
 
-
+#resets to default values
 func _on_load_data_pressed() -> void:
-	print(\"clicked\")
 	SaveLoad.reset()
 "
 

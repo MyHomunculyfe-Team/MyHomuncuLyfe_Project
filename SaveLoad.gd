@@ -20,12 +20,9 @@ func load() -> Dictionary:
 		return default_data.duplicate(true)
 
 	# Otherwise, load existing data
-	print("data exists")
 	var path = "user://save.json"
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path, FileAccess.READ)
-		print("=== SAVE FILE CONTENT ===")
-		print(file.get_as_text())
 		file.close()
 	else:
 		print("No save file found!")

@@ -47,8 +47,6 @@ func _ready() -> void:
 	else:
 		push_error("[Main] Btn_Items NOT found at: %s" % P_BTN_ITEMS)
 		
-	
-	_refresh_stats()
 
 func _process(delta):
 	_refresh_stats()

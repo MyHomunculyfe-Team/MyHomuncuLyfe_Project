@@ -12,7 +12,7 @@ var minigame_data = {
 var minigame_queue: Array = []
 var current_index: int = 0
 
-# --- Score tracking ---
+# Pet data
 var pet_name: String 
 var happiness: int
 var hunger: int
@@ -76,14 +76,16 @@ func report_minigame_finished():
 
 func _play_next():
 	if current_index >= minigame_queue.size():
-		get_tree().change_scene_to_file("res://scenes/Main.tscn")
+		if get_tree():
+			get_tree().change_scene_to_file("res://scenes/Main.tscn")
 		return
 
 	var name = minigame_queue[current_index]
 	var path = minigame_data.get(name, "")
 	if path != "":
 		print("▶️ Loading:", name)
-		get_tree().change_scene_to_file(path)
+		if get_tree():
+			get_tree().change_scene_to_file(path)
 	else:
 		push_error("Scene not found for %s" % name)
 		
