@@ -1,28 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://h4xklox8sx54"]
+[gd_scene load_steps=4 format=3 uid="uid://dvf77hku11u25"]
 
-[ext_resource type="Script" uid="uid://hx63ehimblxc" path="res://Scripts/movethatburger.gd" id="1_pbhm7"]
-[ext_resource type="Texture2D" uid="uid://dcuswi8w361k2" path="res://Assets/homunc food.png" id="2_kijhj"]
+[ext_resource type="Script" uid="uid://f5duyrh4j3oj" path="res://Scripts/movetop.gd" id="1_ffqs8"]
+[ext_resource type="Texture2D" uid="uid://jk8vh5j5iinh" path="res://Assets/topbun.png" id="2_ffqs8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbhm7"]
-size = Vector2(514.574, 51.8563)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmkpo"]
+size = Vector2(213, 59)
 
-[node name="Sprite2D" type="Sprite2D"]
-position = Vector2(-121, -91)
-scale = Vector2(0.250693, 0.250693)
-texture = ExtResource("2_kijhj")
-script = ExtResource("1_pbhm7")
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_ffqs8")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-140.5, -86)
+shape = SubResource("RectangleShape2D_lmkpo")
 
-[node name="Button" type="Button" parent="Area2D"]
-offset_left = -243.326
-offset_top = -27.9226
-offset_right = 254.674
-offset_bottom = 100.077
+[node name="Button" type="Button" parent="."]
+offset_left = -243.0
+offset_top = -138.0
+offset_right = -39.0
+offset_bottom = -58.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7.97791, -11.9668)
-shape = SubResource("RectangleShape2D_pbhm7")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-139.5, -99)
+scale = Vector2(0.367837, 0.56338)
+texture = ExtResource("2_ffqs8")
 
-[connection signal="button_down" from="Area2D/Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Area2D/Button" to="." method="_on_button_button_up"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

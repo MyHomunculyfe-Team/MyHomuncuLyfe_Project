@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://g77mgm78thaj"]
+[gd_scene load_steps=7 format=3 uid="uid://g77mgm78thaj"]
 
 [ext_resource type="Script" uid="uid://c4ukharaeqbdj" path="res://Scripts/job_manager.gd" id="1_277e8"]
 [ext_resource type="PackedScene" uid="uid://dvf77hku11u25" path="res://Scenes/topBun.tscn" id="2_8j1io"]
 [ext_resource type="FontFile" uid="uid://v2tpoash5e0o" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_krgj5"]
-[ext_resource type="Texture2D" uid="uid://cu3pdb6u4gl2h" path="res://Assets/burgerhole (3).png" id="3_5qqug"]
-[ext_resource type="PackedScene" uid="uid://bac4i33pxli37" path="res://Scenes/topMeat.tscn" id="4_yvxnw"]
-[ext_resource type="PackedScene" uid="uid://dx2cewk0vney2" path="res://Scenes/bottomMeat.tscn" id="5_5qqug"]
-[ext_resource type="PackedScene" uid="uid://di6m336sdwfoo" path="res://Scenes/burger_script.tscn" id="6_6bqh8"]
 [ext_resource type="PackedScene" uid="uid://p30hrahwmvx1" path="res://Scenes/bottomBun.tscn" id="7_jb3rs"]
 [ext_resource type="PackedScene" uid="uid://kxu27d820dfs" path="res://Scenes/patty.tscn" id="8_yvxnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_277e8"]
-size = Vector2(266.215, 144.567)
+size = Vector2(191.591, 196.88)
 
 [node name="Node2D" type="Node2D"]
 
@@ -41,47 +37,23 @@ scale = Vector2(0.56721, 0.56721)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(416.953, 230.955)
+position = Vector2(366.707, 72.2836)
 shape = SubResource("RectangleShape2D_277e8")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(405.494, 160.434)
-scale = Vector2(0.148325, 0.148325)
-texture = ExtResource("3_5qqug")
-
 [node name="Area2D" parent="." instance=ExtResource("8_yvxnw")]
-position = Vector2(-178, 20)
+position = Vector2(-181, 5)
 scale = Vector2(0.341496, 0.342319)
 collision_mask = 2
 
-[node name="Area2D6" parent="." instance=ExtResource("4_yvxnw")]
-unique_name_in_owner = true
-position = Vector2(-452, -147)
-scale = Vector2(0.541159, 0.541159)
-collision_layer = 8
-collision_mask = 8
-
-[node name="Area2D5" parent="." instance=ExtResource("5_5qqug")]
-unique_name_in_owner = true
-position = Vector2(-291, -156)
-scale = Vector2(0.52, 0.52)
-collision_mask = 18
-
-[node name="Area2D2" parent="." instance=ExtResource("6_6bqh8")]
-unique_name_in_owner = true
-position = Vector2(-340, -58)
-scale = Vector2(0.347125, 0.347125)
-
 [node name="Area2D3" parent="." instance=ExtResource("2_8j1io")]
-position = Vector2(-39, 22)
+position = Vector2(-97, -101)
 scale = Vector2(0.440002, 0.440002)
-collision_layer = 18
 collision_mask = 5
 
 [node name="Area2D4" parent="." instance=ExtResource("7_jb3rs")]
-position = Vector2(90, 21)
+position = Vector2(28, 0)
 scale = Vector2(0.440002, 0.440002)
-collision_layer = 10
+collision_layer = 2
 collision_mask = 9
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
