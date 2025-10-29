@@ -90,10 +90,9 @@ func _on_btn_items_pressed() -> void:
 	if err != OK:
 		push_error("Failed to change scene to %s (err %d)" % [inventory_scene, err])
 
-
-func _on_btn_care_button_down() -> void:
-	get_tree().change_scene_to_file("res://scenes/careselector.tscn")
-
-
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
+
+func _on_btn_care_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/careselector.tscn")
