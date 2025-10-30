@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kxu27d820dfs"]
 
-[ext_resource type="Script" uid="uid://coe5smtktu815" path="res://Scripts/movepiece.gd" id="1_5ds6a"]
-[ext_resource type="Texture2D" uid="uid://epclaoxm31h2" path="res://Assets/meat.jpeg" id="2_5ds6a"]
+[ext_resource type="Script" uid="uid://c46wj3y6e57bc" path="res://Scripts/movepiece.gd" id="1_5ds6a"]
+[ext_resource type="Texture2D" uid="uid://bwbl4okge40mm" path="res://Assets/meat.jpeg" id="2_5ds6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmkpo"]
 size = Vector2(213, 59)

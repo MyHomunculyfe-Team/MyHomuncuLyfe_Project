@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5q7kpfynvvmk"]
+
+[ext_resource type="Script" uid="uid://bv6um82m5o78k" path="res://Scripts/feed_manager.gd" id="1_5qqug"]
+[ext_resource type="PackedScene" uid="uid://dvf77hku11u25" path="res://Scenes/topBun.tscn" id="2_8j1io"]
+[ext_resource type="FontFile" uid="uid://v2tpoash5e0o" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_krgj5"]
+[ext_resource type="Texture2D" uid="uid://bc4t5av127trs" path="res://Assets/burgerhole (3).png" id="3_5qqug"]
+[ext_resource type="PackedScene" uid="uid://bac4i33pxli37" path="res://Scenes/topMeat.tscn" id="4_yvxnw"]
+[ext_resource type="PackedScene" uid="uid://dx2cewk0vney2" path="res://Scenes/bottomMeat.tscn" id="5_5qqug"]
+[ext_resource type="PackedScene" uid="uid://di6m336sdwfoo" path="res://Scenes/burger_script.tscn" id="6_6bqh8"]
+[ext_resource type="PackedScene" uid="uid://p30hrahwmvx1" path="res://Scenes/bottomBun.tscn" id="7_jb3rs"]
+[ext_resource type="PackedScene" uid="uid://kxu27d820dfs" path="res://Scenes/patty.tscn" id="8_yvxnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_277e8"]
+size = Vector2(266.215, 144.567)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_5qqug")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = -334.0
+offset_top = -351.0
+offset_right = -218.0
+offset_bottom = -316.0
+theme_override_fonts/font = ExtResource("2_krgj5")
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="GameManager"]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(6, -107)
+zoom = Vector2(2, 2)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-15, -119)
+scale = Vector2(0.56721, 0.56721)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(490.118, 389.626)
+shape = SubResource("RectangleShape2D_277e8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(495.407, 320.869)
+scale = Vector2(0.148325, 0.148325)
+texture = ExtResource("3_5qqug")
+
+[node name="Area2D" parent="." instance=ExtResource("8_yvxnw")]
+position = Vector2(-255, 21)
+scale = Vector2(0.341496, 0.342319)
+collision_mask = 2
+
+[node name="Area2D6" parent="." instance=ExtResource("4_yvxnw")]
+unique_name_in_owner = true
+position = Vector2(-472, -116)
+scale = Vector2(0.541159, 0.541159)
+collision_layer = 8
+collision_mask = 8
+
+[node name="Area2D5" parent="." instance=ExtResource("5_5qqug")]
+unique_name_in_owner = true
+position = Vector2(-475, -200)
+scale = Vector2(0.52, 0.52)
+collision_mask = 18
+
+[node name="Area2D2" parent="." instance=ExtResource("6_6bqh8")]
+unique_name_in_owner = true
+position = Vector2(-495, -57)
+scale = Vector2(0.347125, 0.347125)
+
+[node name="Area2D3" parent="." instance=ExtResource("2_8j1io")]
+position = Vector2(-151, 25)
+scale = Vector2(0.440002, 0.440002)
+collision_layer = 18
+collision_mask = 5
+
+[node name="Area2D4" parent="." instance=ExtResource("7_jb3rs")]
+position = Vector2(-50, 41)
+scale = Vector2(0.440002, 0.440002)
+collision_layer = 10
+collision_mask = 9
+
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]

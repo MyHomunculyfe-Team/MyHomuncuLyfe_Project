@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bac4i33pxli37"]
 
-[ext_resource type="Script" uid="uid://c64n54nml7ppv" path="res://Scripts/movebottommeat.gd" id="1_7essc"]
-[ext_resource type="Texture2D" uid="uid://dubt3qii3kem2" path="res://Assets/topmeat.png" id="2_7essc"]
+[ext_resource type="Script" uid="uid://d4g48cl82md1m" path="res://Scripts/movebottommeat.gd" id="1_7essc"]
+[ext_resource type="Texture2D" uid="uid://dp3x3lu13f8ib" path="res://Assets/topmeat.png" id="2_7essc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmkpo"]
 size = Vector2(230.5, 117)
