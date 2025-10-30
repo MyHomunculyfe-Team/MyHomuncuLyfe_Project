@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://r45p0a1hgnpg"]
 
 [ext_resource type="Script" uid="uid://cxfumeadtktwm" path="res://scripts/jobselector.gd" id="1_e4pb7"]
@@ -182,3 +183,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("10_l2c64")
+=======
+[gd_scene load_steps=0 format=3 uid="uid://r45p0a1hgnpg"]
+
+[node name="jobselector" type="Node2D"]
+>>>>>>> Feature-PetStats-Home

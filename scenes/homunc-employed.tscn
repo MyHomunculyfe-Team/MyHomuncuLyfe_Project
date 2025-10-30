@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://dh8jkgfyvf0bk"]
+=======
+[gd_scene load_steps=0 format=3 uid="uid://dh8jkgfyvf0bk"]
+>>>>>>> Feature-PetStats-Home
 
 [node name="Homunc-employed" type="Node2D"]
