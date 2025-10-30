@@ -1,181 +1,200 @@
 extends Control
+class_name InventoryPopup
 
-@export var dimmer_path: NodePath        = ^"Dimmer"
-@export var panel_bg_path: NodePath      = ^"PopupPanelBG"
-@export var grid_path: NodePath          = ^"GridContainer"
+# ---- Drag these in the Inspector ----
+@export_node_path("ColorRect")      var dimmer_path: NodePath
+@export_node_path("Button")         var care_btn_path: NodePath
+@export_node_path("Button")         var food_btn_path: NodePath
+@export_node_path("GridContainer")  var grid_path: NodePath
+@export_node_path("Button")         var close_btn_path: NodePath
 
-@export var care_btn_path: NodePath      = ^"CareButton"
-@export var food_btn_path: NodePath      = ^"FoodButton"
+@onready var _dimmer: ColorRect     = get_node_or_null(dimmer_path)
+@onready var _btn_care: Button      = get_node_or_null(care_btn_path)
+@onready var _btn_food: Button      = get_node_or_null(food_btn_path)
+@onready var _grid: GridContainer   = get_node_or_null(grid_path)
+@onready var _btn_close: Button     = get_node_or_null(close_btn_path)
 
-# If left empty, we’ll create lightweight slots in code (no dependency on ItemSlot.tscn)
-@export var slot_scene: PackedScene
-@export var slot_count: int = 8
-@export var grid_columns: int = 4
+# --- Tiny demo catalog + icons  ---
+const CATALOG := {
+	"care": ["Comb", "Shampoo", "Bath Soap", "Towel", "Lotion", "Toothbrush", "Toothpaste", "Face Wash"],
+	"food": ["Fish", "Biscuits", "Cake", "Fruit", "Bone", "Chicken", "Kibble", "Veggies"],
+}
+const ICONS := {
+	"care": {
+		"Comb":      "res://assets/icons/inventory/comb.png",
+		"Shampoo":   "res://assets/icons/inventory/shampoo.png",
+		"Bath Soap": "res://assets/icons/inventory/soap.png",
+		"Towel":     "res://assets/icons/inventory/towel.png",
+		"Lotion":      "res://assets/icons/inventory/lotion.png",
+		"Toothbrush":   "res://assets/icons/inventory/toothbrush.png",
+		"Toothpaste": "res://assets/icons/inventory/toothpaste.png",
+		"Face Wash":     "res://assets/icons/inventory/face_wash.png",
+		
+	},
+	"food": {
+		"Fish":     "res://assets/icons/inventory/fish.png",
+		"Biscuits": "res://assets/icons/inventory/biscuits.png",
+		"Cake":     "res://assets/icons/inventory/cake.png",
+		"Fruit":    "res://assets/icons/inventory/fruit.png",
+		"Bone":     "res://assets/icons/inventory/bone.png",
+		"Chicken": "res://assets/icons/inventory/chicken.png",
+		"Kibble":     "res://assets/icons/inventory/kibble.png",
+		"Veggies":    "res://assets/icons/inventory/veggies.png",
+		
+	},
+}
 
-var _current_category: String = "care"
-var _cost: Dictionary = {}
-var _slots: Array[Node] = []
+var _active_cat: String = "care"
+var _cost: Dictionary = {}   # optional { "care": {"Comb":true}, "food": {...} }
 
-@onready var _dimmer: ColorRect     = get_node_or_null(dimmer_path)       as ColorRect
-@onready var _panel_bg: CanvasItem  = get_node_or_null(panel_bg_path)     as CanvasItem
-@onready var _grid: GridContainer   = get_node_or_null(grid_path)         as GridContainer
-@onready var _btn_care: BaseButton  = get_node_or_null(care_btn_path)     as BaseButton
-@onready var _btn_food: BaseButton  = get_node_or_null(food_btn_path)     as BaseButton
-
-signal closed
-
+# ----------------------------------------------------------------
+# lifecycle
+# ----------------------------------------------------------------
 func _ready() -> void:
-	if _grid: _grid.columns = max(1, grid_columns)
-	_build_slots_if_needed()
-
-	if _dimmer and not _dimmer.gui_input.is_connected(_on_dimmer_input):
-		_dimmer.gui_input.connect(_on_dimmer_input)
-
-	if _btn_care and not _btn_care.pressed.is_connected(func(): _switch_category("care")):
-		_btn_care.pressed.connect(func(): _switch_category("care"))
-	if _btn_food and not _btn_food.pressed.is_connected(func(): _switch_category("food")):
-		_btn_food.pressed.connect(func(): _switch_category("food"))
-
-	if typeof(Game) != TYPE_NIL and Game.has_signal("inventory_changed"):
-		if not Game.inventory_changed.is_connected(_on_inventory_changed):
-			Game.inventory_changed.connect(_on_inventory_changed)
-
+	# hidden by default
 	hide()
+	if _dimmer:
+		_dimmer.visible = false
+		_dimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-# ---------- Public API ----------
-func open_with_cost(cost: Dictionary, category: String = "care") -> void:
-	_cost = cost if typeof(cost) == TYPE_DICTIONARY else {}
-	_current_category = (category if category in ["care","food"] else "care")
-	_refresh()
-	show()
+	# wire buttons
+	if _btn_care and not _btn_care.pressed.is_connected(_on_care_pressed):
+		_btn_care.pressed.connect(_on_care_pressed)
+	if _btn_food and not _btn_food.pressed.is_connected(_on_food_pressed):
+		_btn_food.pressed.connect(_on_food_pressed)
+	if _btn_close and not _btn_close.pressed.is_connected(_on_close_pressed):
+		_btn_close.pressed.connect(_on_close_pressed)
 
-func open_simple(category: String = "care") -> void:
-	open_with_cost({}, category)
+	_update_tabs()
 
-func close() -> void:
-	hide()
-	emit_signal("closed")
+# called by CareSelector when user clicks “Inventory”
+func open_with_cost(cost: Dictionary) -> void:
+	_cost = cost
+	_show_popup(true)
+	_populate()
 
-# ---------- Internals ----------
-func _on_dimmer_input(e: InputEvent) -> void:
-	if e is InputEventMouseButton and e.pressed:
-		close()
+# ----------------------------------------------------------------
+# UI events
+# ----------------------------------------------------------------
+func _on_close_pressed() -> void:
+	_show_popup(false)
 
-func _on_inventory_changed(_c:String, _n:String, _v:int) -> void:
-	if visible:
-		_refresh()
+func _on_care_pressed() -> void:
+	if _active_cat == "care":
+		return
+	_active_cat = "care"
+	_update_tabs()
+	_populate()
 
-func _switch_category(cat:String) -> void:
-	if cat == _current_category: return
-	_current_category = cat
-	_refresh()
+func _on_food_pressed() -> void:
+	if _active_cat == "food":
+		return
+	_active_cat = "food"
+	_update_tabs()
+	_populate()
 
-func _get_icon(cat:String, name:String) -> Texture2D:
-	if typeof(Game) != TYPE_NIL and Game.has_method("get_icon"):
-		return Game.get_icon(cat, name)
-	return null
+func _update_tabs() -> void:
+	if _btn_care:
+		_btn_care.button_pressed = (_active_cat == "care")
+	if _btn_food:
+		_btn_food.button_pressed = (_active_cat == "food")
 
-func _build_slots_if_needed() -> void:
-	if not _grid or _slots.size() > 0:
+func _show_popup(visible_now: bool) -> void:
+	visible = visible_now
+	if _dimmer:
+		_dimmer.visible = visible_now
+		if visible_now:
+			_dimmer.mouse_filter = Control.MOUSE_FILTER_STOP
+		else:
+			_dimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+# ----------------------------------------------------------------
+# data → slots
+# ----------------------------------------------------------------
+func _populate() -> void:
+	if _grid == null:
 		return
 
-	_slots.clear()
+	# collect slot nodes 
+	var slots: Array[Node] = []
+	for c in _grid.get_children():
+		if c is Button:
+			slots.append(c)
 
-	if slot_scene != null:
-		# Use your real ItemSlot.tscn
-		for i in range(slot_count):
-			var inst := slot_scene.instantiate()
-			_grid.add_child(inst)
-			_slots.append(inst)
-	else:
-		# Lightweight slot implemented here so no merge is needed
-		for i in range(slot_count):
-			var slot := _make_light_slot()
-			_grid.add_child(slot)
-			_slots.append(slot)
-
-# --- lightweight slot (no external scene) ---
-func _make_light_slot() -> Control:
-	var root := Button.new()
-	root.custom_minimum_size = Vector2(160, 160)
-	root.focus_mode = Control.FOCUS_NONE
-
-	var vb := VBoxContainer.new()
-	vb.anchor_right = 1; vb.anchor_bottom = 1
-	vb.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	vb.grow_vertical = Control.GROW_DIRECTION_BOTH
-	vb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	vb.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	root.add_child(vb)
-
-	var icon := TextureRect.new()
-	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon.custom_minimum_size = Vector2(96, 96)
-	icon.name = "Icon"
-	vb.add_child(icon)
-
-	var name_lbl := Label.new()
-	name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	name_lbl.name = "Name"
-	vb.add_child(name_lbl)
-
-	var badge := Label.new()
-	badge.name = "Count"
-	badge.text = "0"
-	badge.add_theme_color_override("font_color", Color(1,1,1))
-	badge.add_theme_font_size_override("font_size", 22)
-	badge.position = Vector2(8, 8)
-	badge.z_index = 5
-	root.add_child(badge)
-
-	# add API compatible with ItemSlot:
-	root.set_meta("icon", icon)
-	root.set_meta("name_lbl", name_lbl)
-	root.set_meta("count_lbl", badge)
-
-	root.set("set_item", func(item_name:String, count:int, tex:Texture2D) -> void:
-		(root.get_meta("name_lbl") as Label).text = item_name
-		(root.get_meta("count_lbl") as Label).text = str(count)
-		var tr := root.get_meta("icon") as TextureRect
-		tr.texture = tex
-		tr.visible = tex != null
-	)
-
-	root.set("clear", func() -> void:
-		(root.get_meta("name_lbl") as Label).text = "Item"
-		(root.get_meta("count_lbl") as Label).text = ""
-		(root.get_meta("icon") as TextureRect).texture = null
-	)
-
-	return root
-
-func _refresh() -> void:
-	if not _grid: return
-
-	var names: Array = []
-	if typeof(Game) != TYPE_NIL and Game.has("CATALOG"):
-		names = Game.CATALOG.get(_current_category, [])
-
+	# paint slots for active category
+	var names: Array = CATALOG.get(_active_cat, [])
 	var idx := 0
-	for slot in _slots:
+	for s in slots:
 		if idx < names.size():
-			var nm:String = names[idx]
-			var cnt:int = (Game.get_count(_current_category, nm) if typeof(Game) != TYPE_NIL else 0)
-			var tex := _get_icon(_current_category, nm)
-
-			if slot.has_method("set_item"):
-				slot.set_item(nm, cnt, tex)
-
-			var needed := false
-			if _cost.has(_current_category) and typeof(_cost[_current_category]) == TYPE_DICTIONARY:
-				needed = _cost[_current_category].has(nm)
-
-			if needed:
-				slot.modulate = Color(1,1,1,1)
-			else:
-				slot.modulate = Color(1,1,1,0.65)
+			var nm: String = names[idx]
+			var tex: Texture2D = _get_icon(_active_cat, nm)
+			var cnt: int = _get_count(_active_cat, nm)
+			_set_slot(s, nm, cnt, tex)
 		else:
-			if slot.has_method("clear"):
-				slot.clear()
-
+			_clear_slot(s)
 		idx += 1
+
+	# fade non-required slots if a cost map was provided
+	if _cost.has(_active_cat) and typeof(_cost[_active_cat]) == TYPE_DICTIONARY:
+		var need_map: Dictionary = _cost[_active_cat]
+		var j := 0
+		for s in slots:
+			if j >= names.size():
+				break
+			var nm2: String = names[j]
+			var needed := need_map.has(nm2)
+			if s is CanvasItem:
+				if needed:
+					(s as CanvasItem).modulate = Color(1, 1, 1, 1)
+				else:
+					(s as CanvasItem).modulate = Color(1, 1, 1, 0.7)
+			j += 1
+
+# Works with PopupItemSlot.gd OR a plain Button with `icon` + `count` children
+func _set_slot(slot: Node, item_name: String, count: int, tex: Texture2D) -> void:
+	if slot.has_method("set_item"):
+		# use PopupItemSlot.gd
+		slot.call("set_item", item_name, count, tex)
+	else:
+		if slot is Button:
+			var t := slot.get_node_or_null(^"icon") as TextureRect
+			var l := slot.get_node_or_null(^"count") as Label
+			if t:
+				t.texture = tex
+				t.visible = true  # always show icon background
+			if l:
+				l.text = str(count)  # show even 0
+				l.visible = true     # make label visible even if 0
+			slot.disabled = false
+			slot.visible = true
+			slot.hint_tooltip = item_name
+
+
+func _clear_slot(slot: Node) -> void:
+	if slot.has_method("clear"):
+		slot.call("clear")
+	else:
+		if slot is Button:
+			var t := slot.get_node_or_null(^"icon") as TextureRect
+			var l := slot.get_node_or_null(^"count") as Label
+			if t:
+				t.texture = null
+				t.visible = false
+			if l:
+				l.text = ""
+				l.visible = false
+			slot.disabled = true
+			slot.hint_tooltip = ""
+
+# ----------------------------------------------------------------
+# helpers
+# ----------------------------------------------------------------
+func _get_icon(cat: String, nm: String) -> Texture2D:
+	var p: String = (ICONS.get(cat, {}) as Dictionary).get(nm, "")
+	if p != "":
+		return load(p) as Texture2D
+	return null
+
+func _get_count(cat: String, nm: String) -> int:
+	# TODO:
+	return int(hash(cat + nm) % 3)

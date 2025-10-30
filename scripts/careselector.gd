@@ -1,5 +1,5 @@
 extends Node2D
-$UI/InventoryPopup.open_with_cost(COSTS.get(_current_key, {}))
+# $UI/InventoryPopup.open_with_cost(COSTS.get(_current_key, {}))
 
 # --- Minigame Data (Name + Scene Path) ---
 var minigame_data = {
@@ -9,22 +9,39 @@ var minigame_data = {
 	"Guard": "res://scenes/guard.tscn",
 }
 
-# --- Dynamic queue state ---
 var minigame_queue: Array = []
 
-# --- Cached node references ---
-@onready var queue_hbox = $UI/NavPanel/BottomScroll/QueueHBox
+@onready var queue_hbox   = $UI/NavPanel/BottomScroll/QueueHBox
 @onready var minigame_list = $UI/PanelContainer/ScrollContainer/MinigameList
 
-func _ready():
-	for button in minigame_list.get_children():
-		var game_name = button.name.replace("_Button", "")
-		button.text = game_name
+# === INVENTORY POPUP HOOKS ===
+@onready var _popup: Control = $UI/InventoryPopup
+@onready var _inventory_btn: Button = $UI/TopBar/InventoryBtn  # <- adjust if your button path differs
 
-	for button in queue_hbox.get_children():
-		button.text = ""
-		button.disabled = true
+const COSTS: Dictionary = {       # example costs for previewing
+	"Feed": { "food": {"Fish": 1} },
+	"Clean": { "care": {"Shampoo": 1} },
+	"Guard": { },                   # no cost
+	"Homunculicious": { "care": {"Comb": 1}, "food": {"Cake": 1} }
+}
+var _current_key: String = "Feed" 
 
+func _ready() -> void:
+	# Make sure popup starts hidden
+	if _popup:
+		_popup.hide()
+
+	# Wire the Inventory button
+	if _inventory_btn:
+		_inventory_btn.pressed.connect(_on_inventory_button_pressed)
+	else:
+		push_error("InventoryBtn path is wrong. Right-click the button → Copy Node Path and fix it here.")
+
+func _on_inventory_button_pressed() -> void:
+	if not _popup:
+		return
+	# Toggle (click to open / click to close)
+	_popup.visible = not _popup.visible
 
 # =====================================================
 # 📜 MENU BUTTONS — Add minigame to queue
@@ -33,6 +50,7 @@ func _on_Homunculicious_Button_pressed(): _add_to_queue("Homunculicious")
 func _on_Feed_Button_pressed(): _add_to_queue("Feed")
 func _on_Clean_Button_pressed(): _add_to_queue("Clean")
 func _on_Guard_Button_pressed(): _add_to_queue("Guard")
+
 
 func _add_to_queue(game_name: String):
 	for button in queue_hbox.get_children():
