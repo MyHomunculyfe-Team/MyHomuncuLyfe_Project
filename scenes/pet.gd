@@ -108,7 +108,7 @@ func _wait_then_move_again() -> void:
 	_pick_new_target()
 	
 func increase_bonding():
-	GameManager.add_happiness(2)
+	GameManager.add_value("happiness", 20)
 	squish()
 	
 func squish():

@@ -6,9 +6,16 @@ signal stats_changed   # renamed from "changed"
 signal deformity_warning(stat_name: String)
 
 @export var pet_name := "Ramonculus"
-@export_range(0, 100) var happiness := 80
+@export_range(0, 100) var happiness := 0
 @export_range(0, 100) var hunger := 40     # 0 = full, 100 = starving
 @export_range(0, 100) var hygiene := 25
+
+var deformity_triggered := {
+	"happiness": false,
+	"hunger": false,
+	"hygiene": false
+}
+
 
 func set_value(field: String, v: float) -> void:
 	v = clamp(v, 0, 100)
@@ -18,7 +25,11 @@ func set_value(field: String, v: float) -> void:
 		_check_deformity(field, v)
 		
 		
-func _check_deformity(field: String, v: int) -> void:
-	# Only trigger when value hits or exceeds 10
-	if v >= 10:
+func _check_deformity(field: String, value: int) -> void:
+	# trigger warning only once when value crosses the threshold
+	if value <= 20 and not deformity_triggered[field]:
+		deformity_triggered[field] = true
 		deformity_warning.emit(field)
+	elif value > 20:
+		# reset trigger once the stat returns to safe range
+		deformity_triggered[field] = false

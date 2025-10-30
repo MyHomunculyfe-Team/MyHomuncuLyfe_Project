@@ -21,9 +21,9 @@ func add_score():
 
 
 func _on_timer_timeout() -> void:
-		time_left -=1
+		time_left -=1   
 		if time_left > 0:
 			timer.start()
 		else:
-			GameManager.add_hunger(10)
+			GameManager.add_value("hunger", 20)
 			GameManager.report_minigame_finished() #end game here

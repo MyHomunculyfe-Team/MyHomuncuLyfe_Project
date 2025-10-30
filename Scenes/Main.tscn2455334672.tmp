@@ -100,6 +100,7 @@ outline_color = Color(0.054902, 0.270588, 0.670588, 1)
 [node name="Main" type="Node2D"]
 position = Vector2(-2, -2)
 script = ExtResource("1_2ofn6")
+inventory_scene = null
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(721, 512)
@@ -439,17 +440,10 @@ offset_top = 8.0
 offset_right = 92.0
 offset_bottom = 51.0
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="input_event" from="Pet/Area2D" to="Pet" method="_input_event"]
 [connection signal="mouse_entered" from="Pet/Area2D" to="Pet" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Pet/Area2D" to="Pet" method="_on_mouse_exited"]
-[connection signal="gui_input" from="UI/Inner Boarder/VBoxMain/PetNameBox/PetNameLabel" to="." method="_on_pet_name_label_gui_input"]
-[connection signal="text_submitted" from="UI/Inner Boarder/VBoxMain/PetNameEdit" to="." method="_on_pet_name_edit_text_submitted"]
 [connection signal="pressed" from="UI/NavPanel/Buttons/Btn_Job" to="." method="_on_btn_job_pressed"]
 [connection signal="pressed" from="UI/NavPanel/Buttons/Btn_Care" to="." method="_on_btn_care_pressed"]
 [connection signal="pressed" from="UI/NavPanel/Buttons/Btn_Items" to="." method="_on_btn_items_pressed"]
 [connection signal="pressed" from="UI/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="UI/DeformityPopup/OKButton" to="." method="_on_ok_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

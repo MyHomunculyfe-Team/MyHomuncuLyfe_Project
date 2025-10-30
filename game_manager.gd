@@ -12,46 +12,52 @@ var minigame_data = {
 var minigame_queue: Array = []
 var current_index: int = 0
 
+signal stats_changed 
+signal deformity_warning(stat_name: String)
+
 # Pet data
 var pet_name: String 
 var happiness: int
 var hunger: int
-var hygine: int
+var hygiene: int
+
+var deformity_triggered := {
+	"happiness": false,
+	"hunger": false,
+	"hygiene": false
+}
 
 func _ready():
 	var data = SaveLoad.load()
 	pet_name = data.get("Pet_name", "MUNC")
 	happiness = data.get("Happiness", 50)
 	hunger = data.get("Hunger", 50)
-	hygine = data.get("Hygine", 50)
+	hygiene = data.get("Hygiene", 50)
+	
 
-
-func add_happiness(points: int):
-	happiness += points
+		
+func add_value(field: String, delta: float) -> void:
+	# Get the current stat
+	var current_value: float = get(field)
 	
-	if happiness > 100:
-		happiness = 100
+	# Add the delta (change amount)
+	var new_value: float = clamp(current_value + delta, 0, 100)
 	
-	if happiness < 0:
-		happiness = 0
-
-func add_hunger(points: int):
-	hunger += points
+	# Only do something if it actually changed
+	if new_value != current_value:
+		set(field, new_value)
+		stats_changed.emit()
+		_check_deformity(field, new_value)
 	
-	if hunger > 100:
-		hunger = 100
-	
-	if hunger < 0:
-		hunger = 0
-	
-func add_hygine(points: int):
-	hygine += points
-	
-	if hygine > 100:
-		hygine = 100
-	
-	if hygine < 0:
-		hygine = 0
+		
+func _check_deformity(field: String, value: int) -> void:
+	# trigger warning only once when value crosses the threshold
+	if value <= 10 and not deformity_triggered[field]:
+		deformity_triggered[field] = true
+		deformity_warning.emit(field)
+	elif value > 10:
+		# reset trigger once the stat returns to safe range
+		deformity_triggered[field] = false
 
 func remove_from_queue(name: String):
 	minigame_queue.erase(name)

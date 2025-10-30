@@ -20,8 +20,8 @@ func _on_body_entered(body: CharacterBody2D):
 			fill_state += 1
 			_update_skin()
 		if fill_state == max_fill:
-			GameManager.add_happiness(10)
-			GameManager.add_hunger(10)
+			GameManager.add_value("hunger", 10)
+			GameManager.add_value("happiness", 20)
 			GameManager.report_minigame_finished()
 
 func _update_skin():

@@ -16,7 +16,7 @@ func _on_back_pressed() -> void:
 	
 #saves data fetched from GameManager to user save file
 func _on_save_data_pressed() -> void:
-	SaveLoad.save({\"Happiness\":GameManager.happiness, \"Hunger\":GameManager.hunger, \"Hygine\":GameManager.hygine, \"Pet_name\":GameManager.pet_name,})
+	SaveLoad.save({\"Happiness\":GameManager.happiness, \"Hunger\":GameManager.hunger, \"Hygiene\":GameManager.hygiene, \"Pet_name\":GameManager.pet_name,})
 
 #resets to default values
 func _on_load_data_pressed() -> void:
