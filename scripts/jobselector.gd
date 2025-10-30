@@ -1,30 +1,11 @@
 extends Node2D
 
-# =====================================================
-# JOBSELECTOR SCRIPT (No Cost Version)
-# =====================================================
-
-# Job name → Scene path
-var minigame_data = {
-	"Homunculicious": "res://scenes/homuncu-licious.tscn",
-	"Feed": "res://scenes/homuncu-feasting.tscn",
-	"Clean": "res://scenes/homuncu-cleaning.tscn",
-	"Guard": "res://scenes/homunc-employed.tscn",
-}
-# --- Dynamic queue state ---
-var minigame_queue: Array = []
-var current_index: int = 0
-
-# Cached node references
 # --- Cached nodes ---
 @onready var queue_hbox = $UI/NavPanel/BottomScroll/QueueHBox
 @onready var minigame_list = $UI/PanelContainer/ScrollContainer/MinigameList
-# =====================================================
-# READY
-# =====================================================
-func _ready():
-	print("✅ Job Selection ready!")
 
+
+func _ready():
 	# connect minigame buttons
 	for button in minigame_list.get_children():
 		var game_name = button.name.replace("_Button", "")
@@ -38,23 +19,21 @@ func _ready():
 		button.connect("pressed", Callable(self, "_on_queue_button_pressed").bind(button))
 
 # =====================================================
-# ADD TO QUEUE (Top buttons)
+# 📜 MENU BUTTONS — Add minigame to queue
 # =====================================================
-
 func _on_minigame_pressed(game_name: String):
 	for button in queue_hbox.get_children():
 		if button.text == "":
 			button.text = game_name
 			button.disabled = false
-			minigame_queue.append(game_name)
+			GameManager.add_to_queue(game_name)
 			print("✅ Added:", game_name)
 			return
 	print("⚠️ Queue full! Remove one to add new.")
 
 
-
 # =====================================================
-# REMOVE FROM QUEUE (Bottom buttons)
+# 🎯 QUEUE BUTTONS — Remove from queue dynamically
 # =====================================================
 func _on_queue_button_pressed(button: Button):
 	if button.text != "":
@@ -62,46 +41,25 @@ func _on_queue_button_pressed(button: Button):
 		print("🗑️ Removed:", game_name)
 		button.text = ""
 		button.disabled = true
-		minigame_queue.erase(game_name)
-
-
+		GameManager.remove_from_queue(game_name)
 
 # =====================================================
-# PLAY BUTTON FUNCTIONALITY
+# ▶️ PLAY BUTTON — Run queued minigames
 # =====================================================
-func _on_Play_pressed():
-	if minigame_queue.is_empty():
-		print("⚠️ No minigames in queue!")
-		return
-
-	print("🎮 Starting queued minigames...")
-	current_index = 0
-	_play_next_minigame()
-
-
-func _play_next_minigame():
-	if current_index >= minigame_queue.size():
-		print("✅ All minigames finished! Returning to Care Selection.")
-		get_tree().change_scene_to_file("res://scenes/care_selection.tscn")
-		return
-
-	var current_game = minigame_queue[current_index]
-	var path = minigame_data.get(current_game, "")
-	if path != "":
-		print("▶️ Loading:", current_game)
-		get_tree().change_scene_to_file(path)
-	else:
-		print("⚠️ Scene not found for", current_game)
-# =====================================================
-# NAVIGATION BUTTONS
-# =====================================================
-
-
-func _on_back_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+func _on_play_pressed():
+	GameManager.start_queue()
 	
+# =====================================================
+# ⚙️ SETTINGS & BACK BUTTONS
+# =====================================================
 func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
+
+func _on_back_button_pressed(): 
+	get_tree().change_scene_to_file("res://scenes/Main.tscn")
+
+
 
 func _on_homunculicious_button_pressed() -> void:
 	pass # Replace with function body.

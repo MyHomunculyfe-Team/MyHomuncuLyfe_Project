@@ -2,10 +2,10 @@ extends Node
 
 # --- Minigame data ---
 var minigame_data = {
-	"Homuncu-feasting": "res://scenes/homuncu-feasting.tscn",
-	"Homuncu-licious": "res://scenes/feed_game.tscn",
-	"Homuncu-cleaning": "res://scenes/clean_game.tscn",
-	"Guard": "res://scenes/homunc-employed.tscn",
+	"Homuncu-feasting": "res://Scenes/homuncu-feasting.tscn",
+	"Homuncu-licious": "res://Scenes/feed_game.tscn",
+	"Homuncu-cleaning": "res://Scenes/clean_game.tscn",
+	"Homunc-employed": "res://Scenes/JobGame.tscn",
 }
 
 # --- Queue and progress ---
