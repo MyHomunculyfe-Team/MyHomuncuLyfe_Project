@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ytb7tc2ms0p5"
-path="res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"
+uid="uid://dfjp1jexx3gge"
+path="res://.godot/imported/Care Minigames.png-f1ae3da4d032cc6205dba6a048e72ba6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/homunc box.png"
-dest_files=["res://.godot/imported/homunc box.png-c81102e617ddcdb8bd919905b6c86679.ctex"]
+source_file="res://assets/icons/Care Minigames.png"
+dest_files=["res://.godot/imported/Care Minigames.png-f1ae3da4d032cc6205dba6a048e72ba6.ctex"]
 
 [params]
 
