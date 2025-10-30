@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
-@export var appear_time: float = 5.0   # how long it's visible
-@export var disappear_time: float = 3.0  # how long it's hidden
-@export var FoodFloatArea: Area2D
+@export var appear_time: float = 5.0   
+@export var disappear_time: float = 3.0  
+@export var food_float_area: Area2D
 
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -13,18 +13,23 @@ var is_visible_mode := false
 var timer := 0.0
 var bounce_velocity
 var is_on_bowl = false
+var cycle = false
 
-@onready var sprite := $Sprite2D  
-var tween: Tween
+var _sprite : Sprite2D  
+var _tween: Tween
 
 func _ready():
+	food_float_area = $"../FoodFloatArea"
+	_sprite = $Sprite2D
+	
 	randomize() # pick a random diagonal direction 
 	var angle = randf_range(0.0, TAU) 
 	bounce_velocity = Vector2(cos(angle), sin(angle)) * speed
 	
 	input_pickable = false
-	sprite.visible = false
-	_cycle_mode()  # start automatic loop
+	_sprite.visible = false
+	cycle = true  # start automatic loop
+	_cycle_mode()
 
 func _input_event(_viewport, event, _shape_idx):
 	if not is_visible_mode:
@@ -45,21 +50,20 @@ func _unhandled_input(event):
 func _process(delta: float):
 	if dragging:
 		global_position = get_global_mouse_position() + drag_offset
-	else:
+	elif speed != 0:
 		global_position += bounce_velocity * delta
 		_check_bounds()
 
 #Automatic cycle for hiding and showing
 func _cycle_mode():
-	if is_visible_mode:
-		hide_with_pop()
-		await get_tree().create_timer(disappear_time).timeout
-		
-	else:
-		show_with_pop()
-		await get_tree().create_timer(appear_time).timeout
-	
-	_cycle_mode()  # loop forever
+	while cycle:
+		if is_visible_mode:
+			hide_with_pop()
+			await get_tree().create_timer(disappear_time).timeout
+			
+		else:
+			show_with_pop()
+			await get_tree().create_timer(appear_time).timeout
 
 #Animations
 func show_with_pop():
@@ -67,11 +71,12 @@ func show_with_pop():
 	timer = 0.0
 	input_pickable = true
 	
-	sprite.visible = true
-	sprite.scale = Vector2.ZERO
-	if tween: tween.kill()
-	tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(sprite, "scale", Vector2.ONE, 0.5)
+	_sprite.visible = true
+	_sprite.scale = Vector2.ZERO
+	if _tween: _tween.kill()
+	_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	var duration = 0.5
+	_tween.tween_property(_sprite, "scale", Vector2.ONE, duration)
 
 #Hiding bone temporarily at intervals
 func hide_with_pop():
@@ -79,34 +84,29 @@ func hide_with_pop():
 	timer = 0.0
 	input_pickable = false
 	
-	if tween: tween.kill()
-	tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
-	tween.tween_property(sprite, "scale", Vector2.ZERO, 0.3)
-	tween.finished.connect(func(): 
-		sprite.visible = false
+	if _tween: _tween.kill()
+	_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
+	
+	var duration = 0.3
+	_tween.tween_property(_sprite, "scale", Vector2.ZERO, duration)
+	_tween.finished.connect(func(): 
+		_sprite.visible = false
 		dragging = false)
 	
 	
 #Function to keep bone within a certain area
 func _check_bounds():
-	var screen_size = FoodFloatArea.get_node("CollisionShape2D").shape.extents * 2
+	var screen_size = food_float_area.get_node("CollisionShape2D").shape.extents * 2
 	
+	#Multiply by -1 to flip direction
 	if not dragging:
-		if global_position.x <= 0: 
-			global_position.x = 0 
-			bounce_velocity.x *= -1 
-		elif global_position.x >= screen_size.x: 
-			global_position.x = screen_size.x 
-			bounce_velocity.x *= -1
+		global_position = global_position.clamp(Vector2.ZERO, screen_size)
 	
-		if global_position.y <= 0: 
-			global_position.y = 0 
-			bounce_velocity.y *= -1 
-		elif global_position.y >= screen_size.y: 
-			global_position.y = screen_size.y 
+		if global_position.x == 0 or global_position.x == screen_size.x:
+			bounce_velocity.x *= -1
+		if global_position.y == 0 or global_position.y == screen_size.y:
 			bounce_velocity.y *= -1
 	
-
 		
 #To sense when bone has touched bowl
 func on_bowl(body):

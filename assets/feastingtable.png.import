@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0m7n1tfs3w1i"
-path="res://.godot/imported/feastingtable.png-d315214f69cb26e33a062d1bdbdea31c.ctex"
+path="res://.godot/imported/feastingtable.png-bcfad8f86fdf99990fb4eebfb3adbf85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/feastingtable.png"
-dest_files=["res://.godot/imported/feastingtable.png-d315214f69cb26e33a062d1bdbdea31c.ctex"]
+source_file="res://assets/feastingtable.png"
+dest_files=["res://.godot/imported/feastingtable.png-bcfad8f86fdf99990fb4eebfb3adbf85.ctex"]
 
 [params]
 

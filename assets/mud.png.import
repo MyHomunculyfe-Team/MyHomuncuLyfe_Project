@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k3r34dqmiq52"
-path="res://.godot/imported/mud.png-257398b5bbedacf82d22b5656bfa3ad9.ctex"
+path="res://.godot/imported/mud.png-82c979e10e01c20c071b9b27ced16513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mud.png"
-dest_files=["res://.godot/imported/mud.png-257398b5bbedacf82d22b5656bfa3ad9.ctex"]
+source_file="res://assets/mud.png"
+dest_files=["res://.godot/imported/mud.png-82c979e10e01c20c071b9b27ced16513.ctex"]
 
 [params]
 

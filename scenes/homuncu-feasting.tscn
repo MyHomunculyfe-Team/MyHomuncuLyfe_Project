@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://c1g1f5ay1qlx5" path="res://assets/Homunc.png" id="1_1w66d"]
 [ext_resource type="Script" uid="uid://tcfkg1p2r2we" path="res://scenes/homunculus.gd" id="1_7boqm"]
 [ext_resource type="Texture2D" uid="uid://bf7m78yogmg5h" path="res://assets/feastingbg.png" id="1_dejx8"]
-[ext_resource type="Script" uid="uid://du60j5vy2t44i" path="res://scenes/homuncu_feasting.gd" id="1_yvq8f"]
+[ext_resource type="Script" uid="uid://du60j5vy2t44i" path="res://Scenes/homuncu_feasting.gd" id="1_yvq8f"]
 [ext_resource type="Texture2D" uid="uid://c7bjyp8s8m3ve" path="res://assets/Munceat.png" id="4_q0kig"]
 [ext_resource type="Texture2D" uid="uid://b0m7n1tfs3w1i" path="res://assets/feastingtable.png" id="4_q2yne"]
 [ext_resource type="Texture2D" uid="uid://vhn44kjv1b26" path="res://assets/Bowl.png" id="5_6gpyx"]
-[ext_resource type="Script" uid="uid://ca0i5lolf3j5e" path="res://scenes/bowl.gd" id="5_bvpi5"]
-[ext_resource type="Script" uid="uid://biig3agr3d8ot" path="res://scenes/bone.gd" id="6_biffj"]
+[ext_resource type="Script" uid="uid://ca0i5lolf3j5e" path="res://Scenes/bowl.gd" id="5_bvpi5"]
+[ext_resource type="Script" uid="uid://biig3agr3d8ot" path="res://Scenes/bone.gd" id="6_biffj"]
 [ext_resource type="Texture2D" uid="uid://wi47li7qyuka" path="res://assets/bone.png" id="6_njwbk"]
 [ext_resource type="Texture2D" uid="uid://el7p3qiqcj2c" path="res://assets/bowl-1.png" id="7_q0kig"]
 [ext_resource type="Texture2D" uid="uid://b6wjyqs7ltvo1" path="res://assets/bowl-2.png" id="8_yvq8f"]
@@ -138,11 +138,10 @@ position = Vector2(708, 700)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_biffj")
 
-[node name="Bone" type="CharacterBody2D" parent="." node_paths=PackedStringArray("FoodFloatArea") groups=["Food"]]
+[node name="Bone" type="CharacterBody2D" parent="." groups=["Food"]]
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("6_biffj")
-FoodFloatArea = NodePath("../FoodFloatArea")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Bone"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfjp1jexx3gge"
-path="res://.godot/imported/Care Minigames.png-e64ccea40c1dc029cabc5636afe5f0af.ctex"
+path="res://.godot/imported/Care Minigames.png-f1ae3da4d032cc6205dba6a048e72ba6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/Care Minigames.png"
-dest_files=["res://.godot/imported/Care Minigames.png-e64ccea40c1dc029cabc5636afe5f0af.ctex"]
+source_file="res://assets/icons/Care Minigames.png"
+dest_files=["res://.godot/imported/Care Minigames.png-f1ae3da4d032cc6205dba6a048e72ba6.ctex"]
 
 [params]
 

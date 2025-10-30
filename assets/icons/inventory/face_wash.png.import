@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ouprmousi2w0"
-path="res://.godot/imported/face_wash.png-ef601d1989fb1a66747970d03698695c.ctex"
+path="res://.godot/imported/face_wash.png-3e7572a101ef1f34ea3c3eaa1c96d466.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/inventory/face_wash.png"
-dest_files=["res://.godot/imported/face_wash.png-ef601d1989fb1a66747970d03698695c.ctex"]
+source_file="res://assets/icons/inventory/face_wash.png"
+dest_files=["res://.godot/imported/face_wash.png-3e7572a101ef1f34ea3c3eaa1c96d466.ctex"]
 
 [params]
 

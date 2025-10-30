@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7bjyp8s8m3ve"
-path="res://.godot/imported/Munceat.png-f5a1b00b7124861e6f3a5beff64c0a5f.ctex"
+path="res://.godot/imported/Munceat.png-20868610e2254dc845967bedfb6e6412.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Munceat.png"
-dest_files=["res://.godot/imported/Munceat.png-f5a1b00b7124861e6f3a5beff64c0a5f.ctex"]
+source_file="res://assets/Munceat.png"
+dest_files=["res://.godot/imported/Munceat.png-20868610e2254dc845967bedfb6e6412.ctex"]
 
 [params]
 

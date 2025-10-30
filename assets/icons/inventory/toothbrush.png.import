@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbers4ebkl5x0"
-path="res://.godot/imported/toothbrush.png-84da29a5a9c150fe224b26c3b4ee7ed5.ctex"
+path="res://.godot/imported/toothbrush.png-5ac4e06f776dc0041e9a5be1e5806a1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/inventory/toothbrush.png"
-dest_files=["res://.godot/imported/toothbrush.png-84da29a5a9c150fe224b26c3b4ee7ed5.ctex"]
+source_file="res://assets/icons/inventory/toothbrush.png"
+dest_files=["res://.godot/imported/toothbrush.png-5ac4e06f776dc0041e9a5be1e5806a1b.ctex"]
 
 [params]
 

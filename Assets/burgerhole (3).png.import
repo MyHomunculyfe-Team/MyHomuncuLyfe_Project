@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc4t5av127trs"
-path="res://.godot/imported/burgerhole (3).png-dd015535d5d0fbba3b52179fb5bf9661.ctex"
+path="res://.godot/imported/burgerhole (3).png-58122c4a14306a49befb7a630f311ff7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/burgerhole (3).png"
-dest_files=["res://.godot/imported/burgerhole (3).png-dd015535d5d0fbba3b52179fb5bf9661.ctex"]
+source_file="res://assets/burgerhole (3).png"
+dest_files=["res://.godot/imported/burgerhole (3).png-58122c4a14306a49befb7a630f311ff7.ctex"]
 
 [params]
 

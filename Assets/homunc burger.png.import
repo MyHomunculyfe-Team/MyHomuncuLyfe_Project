@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1kfw7pdyjxch"
-path="res://.godot/imported/homunc burger.png-c06901e426593c14864c1f0295bac00e.ctex"
+path="res://.godot/imported/homunc burger.png-c6dec9b66c2c4762a907c20e6d064f73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/homunc burger.png"
-dest_files=["res://.godot/imported/homunc burger.png-c06901e426593c14864c1f0295bac00e.ctex"]
+source_file="res://assets/homunc burger.png"
+dest_files=["res://.godot/imported/homunc burger.png-c6dec9b66c2c4762a907c20e6d064f73.ctex"]
 
 [params]
 

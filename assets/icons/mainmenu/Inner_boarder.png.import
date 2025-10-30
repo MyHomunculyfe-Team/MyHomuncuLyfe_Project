@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfkcmr4pa6ok8"
-path="res://.godot/imported/Inner_boarder.png-e2de5172449e81668ee242a0fa5654c8.ctex"
+path="res://.godot/imported/Inner_boarder.png-040430bb48089b7d13ce45d4a1264084.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/mainmenu/Inner_boarder.png"
-dest_files=["res://.godot/imported/Inner_boarder.png-e2de5172449e81668ee242a0fa5654c8.ctex"]
+source_file="res://assets/icons/mainmenu/Inner_boarder.png"
+dest_files=["res://.godot/imported/Inner_boarder.png-040430bb48089b7d13ce45d4a1264084.ctex"]
 
 [params]
 

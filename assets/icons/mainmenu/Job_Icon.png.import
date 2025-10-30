@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdurlmjwd2o6k"
-path="res://.godot/imported/Job_Icon.png-533800989d5b20bbf827fbf7034d05cb.ctex"
+path="res://.godot/imported/Job_Icon.png-120f43af693047a6008d654902a26cbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/mainmenu/Job_Icon.png"
-dest_files=["res://.godot/imported/Job_Icon.png-533800989d5b20bbf827fbf7034d05cb.ctex"]
+source_file="res://assets/icons/mainmenu/Job_Icon.png"
+dest_files=["res://.godot/imported/Job_Icon.png-120f43af693047a6008d654902a26cbe.ctex"]
 
 [params]
 

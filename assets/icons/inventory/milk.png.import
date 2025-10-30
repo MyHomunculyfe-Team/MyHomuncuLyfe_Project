@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cldrvqf52lich"
-path="res://.godot/imported/milk.png-9558c48e037985f89e07f8e34fddf86a.ctex"
+path="res://.godot/imported/milk.png-e9e52fda19774ad375b8bf57846de397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/inventory/milk.png"
-dest_files=["res://.godot/imported/milk.png-9558c48e037985f89e07f8e34fddf86a.ctex"]
+source_file="res://assets/icons/inventory/milk.png"
+dest_files=["res://.godot/imported/milk.png-e9e52fda19774ad375b8bf57846de397.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcjvpy54ytuww"
-path="res://.godot/imported/Nav_gradient_background.png-7b872b98eece348d2eedbc004971a902.ctex"
+path="res://.godot/imported/Nav_gradient_background.png-8953dae8d4a3c83458658b6df68afb7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/icons/mainmenu/Nav_gradient_background.png"
-dest_files=["res://.godot/imported/Nav_gradient_background.png-7b872b98eece348d2eedbc004971a902.ctex"]
+source_file="res://assets/icons/mainmenu/Nav_gradient_background.png"
+dest_files=["res://.godot/imported/Nav_gradient_background.png-8953dae8d4a3c83458658b6df68afb7c.ctex"]
 
 [params]
 
