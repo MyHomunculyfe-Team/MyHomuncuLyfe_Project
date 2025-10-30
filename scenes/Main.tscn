@@ -1,0 +1,402 @@
+[gd_scene load_steps=32 format=3 uid="uid://by3wa5mbianq5"]
+
+[ext_resource type="Script" uid="uid://ov71pqi3oyu6" path="res://scripts/Main.gd" id="1_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://18i6ocals2et" path="res://assets/Homunc.png" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://bv8a6tuw24tlj" path="res://assets/icons/mainmenu/Home.png" id="2_2ofn6"]
+[ext_resource type="Script" uid="uid://gb15o2hwev3e" path="res://scripts/Pet.gd" id="3_0bbpv"]
+[ext_resource type="FontFile" uid="uid://blhlh4a2ahqfu" path="res://assets/fonts/Montserrat-Black.ttf" id="6_bjd11"]
+[ext_resource type="Texture2D" uid="uid://c43m71pwdpp5e" path="res://assets/icons/mainmenu/Inner_boarder.png" id="7_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://c666evcqwcrxd" path="res://assets/icons/mainmenu/Stats_boarder.png" id="8_xa025"]
+[ext_resource type="Texture2D" uid="uid://juib1g7wtcbn" path="res://assets/icons/mainmenu/track.png" id="10_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://djt3uwhxl3ik3" path="res://assets/icons/mainmenu/fill_green.png" id="11_36rkl"]
+[ext_resource type="Texture2D" uid="uid://daxf11lidg0aa" path="res://assets/icons/mainmenu/fill_yellow.png" id="12_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://bbw4rhtr004gd" path="res://assets/icons/mainmenu/fill_red.png" id="13_ma7h6"]
+[ext_resource type="Texture2D" uid="uid://cqdt55lqcyl3u" path="res://assets/icons/mainmenu/Nav_gradient_background.png" id="14_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://2dbx42wqqj3i" path="res://assets/icons/mainmenu/Nav_background_pattern.png" id="15_gsxep"]
+[ext_resource type="Texture2D" uid="uid://4r1q0l3201dw" path="res://assets/icons/mainmenu/Job_Button.png" id="16_v0vrg"]
+[ext_resource type="Texture2D" uid="uid://domxsiwiiftg5" path="res://assets/icons/mainmenu/Job_Icon.png" id="17_dg70y"]
+[ext_resource type="Texture2D" uid="uid://ceh4vm7t40d2v" path="res://assets/icons/mainmenu/Shop_Button.png" id="18_pnhog"]
+[ext_resource type="Texture2D" uid="uid://dlmoahigek7q0" path="res://assets/icons/mainmenu/bag.png" id="19_2c4at"]
+[ext_resource type="Texture2D" uid="uid://6s3yeqdx1heu" path="res://assets/icons/mainmenu/Care_Button.png" id="20_g6wdg"]
+[ext_resource type="Texture2D" uid="uid://bm5sjdyycri5g" path="res://assets/icons/mainmenu/Care_Icon.png" id="21_hq6as"]
+[ext_resource type="Texture2D" uid="uid://bswy8elxhryi6" path="res://assets/icons/mainmenu/Item_Button.png" id="22_kxyth"]
+[ext_resource type="Texture2D" uid="uid://r7iuko5318dy" path="res://assets/icons/mainmenu/Items_Icon.png" id="23_cobve"]
+[ext_resource type="Texture2D" uid="uid://sty08qlgonjs" path="res://assets/icons/mainmenu/Settings.png" id="24_2ofn6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iba3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_elqb8")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wp0k4"]
+line_spacing = -30.0
+font = ExtResource("6_bjd11")
+font_size = 48
+font_color = Color(1, 0.701961, 0.384314, 1)
+outline_size = 15
+outline_color = Color(0.247059, 0.184314, 0.247059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmy6f"]
+font = ExtResource("6_bjd11")
+font_size = 20
+outline_size = 10
+outline_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwfav"]
+font = ExtResource("6_bjd11")
+font_size = 20
+outline_size = 10
+outline_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3p2gp"]
+font = ExtResource("6_bjd11")
+font_size = 20
+outline_size = 10
+outline_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dg70y"]
+font = ExtResource("6_bjd11")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.054902, 0.270588, 0.670588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnhog"]
+font = ExtResource("6_bjd11")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.054902, 0.270588, 0.670588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2c4at"]
+font = ExtResource("6_bjd11")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.054902, 0.270588, 0.670588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6wdg"]
+font = ExtResource("6_bjd11")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.054902, 0.270588, 0.670588, 1)
+
+[node name="Main" type="Node2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_2ofn6")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(721, 512)
+texture = ExtResource("2_2ofn6")
+
+[node name="Pet" type="AnimatedSprite2D" parent="."]
+position = Vector2(933.75, 566)
+scale = Vector2(0.751042, 0.744141)
+sprite_frames = SubResource("SpriteFrames_1iba3")
+animation = &"Walk"
+script = ExtResource("3_0bbpv")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Inner Boarder" type="TextureRect" parent="UI"]
+clip_contents = true
+anchors_preset = -1
+anchor_right = 0.423889
+anchor_bottom = 0.290492
+offset_left = 32.0
+offset_top = 17.0
+offset_right = -1.40002
+offset_bottom = -2.46402
+mouse_filter = 2
+texture = ExtResource("7_2ofn6")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="TextureRect" parent="UI/Inner Boarder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.057
+anchor_right = 0.025
+anchor_bottom = 0.057
+offset_left = -17.825
+offset_top = -16.043
+offset_right = 563.175
+offset_bottom = 260.957
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("8_xa025")
+
+[node name="Padding" type="MarginContainer" parent="UI/Inner Boarder"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 545.0
+offset_bottom = 241.0
+
+[node name="VBoxMain" type="VBoxContainer" parent="UI/Inner Boarder"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 18.0
+offset_right = 550.0
+offset_bottom = 259.0
+theme_override_constants/separation = 12
+
+[node name="PetNameBox" type="CenterContainer" parent="UI/Inner Boarder/VBoxMain"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PetNameLabel" type="Label" parent="UI/Inner Boarder/VBoxMain/PetNameBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.701961, 0.384314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_bjd11")
+theme_override_font_sizes/font_size = 20
+text = "Ramonculus
+"
+label_settings = SubResource("LabelSettings_wp0k4")
+
+[node name="VBoxStats" type="VBoxContainer" parent="UI/Inner Boarder/VBoxMain"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Row_Happiness" type="HBoxContainer" parent="UI/Inner Boarder/VBoxMain/VBoxStats"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="LabelGroup" type="HBoxContainer" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Happiness"]
+layout_mode = 2
+
+[node name="Lbl_Happiness" type="Label" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Happiness/LabelGroup"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_bjd11")
+text = "Happiness"
+label_settings = SubResource("LabelSettings_qmy6f")
+
+[node name="Icon" type="TextureRect" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Happiness/LabelGroup"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HappinessBar" type="TextureProgressBar" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Happiness"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 95.0
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_top = 12
+stretch_margin_right = 12
+stretch_margin_bottom = 12
+texture_under = ExtResource("10_2ofn6")
+texture_progress = ExtResource("11_36rkl")
+
+[node name="Row_Hunger" type="HBoxContainer" parent="UI/Inner Boarder/VBoxMain/VBoxStats"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lbl_Hunger" type="Label" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Hunger"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hunger"
+label_settings = SubResource("LabelSettings_mwfav")
+
+[node name="HungerBar" type="TextureProgressBar" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Hunger"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 69.0
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_top = 12
+stretch_margin_right = 12
+stretch_margin_bottom = 12
+texture_under = ExtResource("10_2ofn6")
+texture_progress = ExtResource("12_fs0b5")
+
+[node name="Row_Hygiene" type="HBoxContainer" parent="UI/Inner Boarder/VBoxMain/VBoxStats"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Lbl_Hygiene" type="Label" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Hygiene"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hygiene"
+label_settings = SubResource("LabelSettings_3p2gp")
+
+[node name="HygieneBar" type="TextureProgressBar" parent="UI/Inner Boarder/VBoxMain/VBoxStats/Row_Hygiene"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 25.0
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_top = 12
+stretch_margin_right = 12
+stretch_margin_bottom = 12
+texture_under = ExtResource("10_2ofn6")
+texture_progress = ExtResource("13_ma7h6")
+
+[node name="NavPanel" type="PanelContainer" parent="UI"]
+custom_minimum_size = Vector2(120, 420)
+anchors_preset = -1
+anchor_top = 0.372
+anchor_right = 0.134
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -2.34399
+offset_right = -1.78502
+offset_bottom = -17.306
+
+[node name="BG_Gradient" type="TextureRect" parent="UI/NavPanel"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("14_e2s0e")
+
+[node name="BG_Pattern" type="TextureRect" parent="UI/NavPanel"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("15_gsxep")
+
+[node name="Buttons" type="VBoxContainer" parent="UI/NavPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Btn_Job" type="TextureButton" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("16_v0vrg")
+
+[node name="Job" type="Label" parent="UI/NavPanel/Buttons/Btn_Job"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 86.0
+offset_right = 127.0
+offset_bottom = 117.0
+text = "Job"
+label_settings = SubResource("LabelSettings_dg70y")
+horizontal_alignment = 1
+
+[node name="Job_Icon" type="TextureRect" parent="UI/NavPanel/Buttons/Btn_Job"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.797
+anchor_right = 0.797
+offset_left = -73.031
+offset_top = 19.0
+offset_right = -0.0310059
+offset_bottom = 92.0
+texture = ExtResource("17_dg70y")
+expand_mode = 1
+
+[node name="Btn_Shop" type="TextureButton" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("18_pnhog")
+
+[node name="Shop" type="Label" parent="UI/NavPanel/Buttons/Btn_Shop"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 82.0
+offset_right = 127.0
+offset_bottom = 113.0
+text = "Shop"
+label_settings = SubResource("LabelSettings_pnhog")
+horizontal_alignment = 1
+
+[node name="Shop_Icon" type="TextureRect" parent="UI/NavPanel/Buttons/Btn_Shop"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 10.0
+offset_right = 98.0
+offset_bottom = 83.0
+texture = ExtResource("19_2c4at")
+expand_mode = 1
+
+[node name="Btn_Care" type="TextureButton" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("20_g6wdg")
+
+[node name="Care" type="Label" parent="UI/NavPanel/Buttons/Btn_Care"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 84.0
+offset_right = 126.0
+offset_bottom = 115.0
+text = "Care"
+label_settings = SubResource("LabelSettings_2c4at")
+horizontal_alignment = 1
+
+[node name="Care_Icon" type="TextureRect" parent="UI/NavPanel/Buttons/Btn_Care"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 17.0
+offset_right = 98.0
+offset_bottom = 90.0
+texture = ExtResource("21_hq6as")
+expand_mode = 1
+
+[node name="Btn_Items" type="TextureButton" parent="UI/NavPanel/Buttons"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("22_kxyth")
+
+[node name="Item" type="Label" parent="UI/NavPanel/Buttons/Btn_Items"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 82.0
+offset_right = 126.0
+offset_bottom = 131.0
+text = "Items"
+label_settings = SubResource("LabelSettings_g6wdg")
+horizontal_alignment = 1
+
+[node name="Item_Icon" type="TextureRect" parent="UI/NavPanel/Buttons/Btn_Items"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 98.0
+offset_bottom = 88.0
+mouse_filter = 2
+texture = ExtResource("23_cobve")
+expand_mode = 1
+
+[node name="Settings" type="Button" parent="UI"]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = -1
+anchor_left = 1.2
+anchor_top = 0.005
+anchor_right = 1.2
+anchor_bottom = 0.005
+offset_left = -234.0
+offset_top = 12.88
+offset_right = -144.0
+offset_bottom = 102.88
+grow_horizontal = 0
+icon = ExtResource("24_2ofn6")
+icon_alignment = 1
+
+[connection signal="pressed" from="UI/NavPanel/Buttons/Btn_Items" to="." method="_on_btn_items_pressed"]

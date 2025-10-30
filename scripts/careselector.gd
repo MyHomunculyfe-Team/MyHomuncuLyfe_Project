@@ -1,4 +1,5 @@
 extends Node2D
+$UI/InventoryPopup.open_with_cost(COSTS.get(_current_key, {}))
 
 # --- Minigame Data (Name + Scene Path) ---
 var minigame_data = {
