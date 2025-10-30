@@ -8,12 +8,10 @@ var _last_mouse_pos: Vector2
 var _last_direction: Vector2 = Vector2.ZERO
 var _can_increase := true
 var _cooldown_timer: float = 0.0
-
+var animated_sprite : AnimatedSprite2D
 
 func _ready():
-	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
-	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
-
+	animated_sprite = $"../AnimatedSprite2D"
 
 func _on_mouse_entered():
 	_is_mouse_over = true
@@ -60,3 +58,10 @@ func _input(event):
 func increase_bonding():
 	bonding += 1
 	print("Bonding increased! Current bonding =", bonding)
+	squish()
+	
+func squish():
+	var tween = create_tween()
+
+	tween.tween_property(animated_sprite, "scale", animated_sprite.scale * Vector2(1.2, 0.9), 0.1)
+	tween.tween_property(animated_sprite, "scale", animated_sprite.scale, 0.1)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bh3o5okllnmun"]
+[gd_scene load_steps=21 format=3 uid="uid://bh3o5okllnmun"]
 
 [ext_resource type="Texture2D" uid="uid://c1g1f5ay1qlx5" path="res://assets/Homunc.png" id="1_1w66d"]
 [ext_resource type="Script" uid="uid://tcfkg1p2r2we" path="res://scenes/homunculus.gd" id="1_7boqm"]
 [ext_resource type="Texture2D" uid="uid://bf7m78yogmg5h" path="res://assets/feastingbg.png" id="1_dejx8"]
-[ext_resource type="Script" uid="uid://du60j5vy2t44i" path="res://scenes/homuncu_feasting.gd" id="1_yvq8f"]
 [ext_resource type="Texture2D" uid="uid://c7bjyp8s8m3ve" path="res://assets/Munceat.png" id="4_q0kig"]
 [ext_resource type="Texture2D" uid="uid://b0m7n1tfs3w1i" path="res://assets/feastingtable.png" id="4_q2yne"]
 [ext_resource type="Texture2D" uid="uid://vhn44kjv1b26" path="res://assets/Bowl.png" id="5_6gpyx"]
@@ -69,7 +68,6 @@ size = Vector2(211.728, 83.4958)
 size = Vector2(1400, 453)
 
 [node name="homuncu-feasting" type="Node2D"]
-script = ExtResource("1_yvq8f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1440.0
