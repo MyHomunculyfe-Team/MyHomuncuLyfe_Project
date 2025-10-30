@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k3dirxti0hx8"
-path="res://.godot/imported/Job Minigames.png-dfc8b87d3eae157c50b2823262609763.ctex"
+path="res://.godot/imported/Job Minigames.png-cdcf5297fadb9b04de1f8d946c465dfe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Job Minigames.png"
-dest_files=["res://.godot/imported/Job Minigames.png-dfc8b87d3eae157c50b2823262609763.ctex"]
+source_file="res://Assets/icons/Job Minigames.png"
+dest_files=["res://.godot/imported/Job Minigames.png-cdcf5297fadb9b04de1f8d946c465dfe.ctex"]
 
 [params]
 

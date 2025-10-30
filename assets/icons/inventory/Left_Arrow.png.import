@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgw7r5gamxwe5"
-path="res://.godot/imported/Left_Arrow.png-0e511acf23ca7246694c412f05f9fa6f.ctex"
+path="res://.godot/imported/Left_Arrow.png-409486b96cc9036110ded06cb0d790fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/Left_Arrow.png"
-dest_files=["res://.godot/imported/Left_Arrow.png-0e511acf23ca7246694c412f05f9fa6f.ctex"]
+source_file="res://Assets/icons/inventory/Left_Arrow.png"
+dest_files=["res://.godot/imported/Left_Arrow.png-409486b96cc9036110ded06cb0d790fa.ctex"]
 
 [params]
 

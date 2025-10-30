@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2uxr1c6p2ma4"
-path="res://.godot/imported/scarf.png-b0e8db317ffed3ec03b3a386c9e30239.ctex"
+path="res://.godot/imported/scarf.png-ebed16680dea5d25581284f4da0bcd9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/scarf.png"
-dest_files=["res://.godot/imported/scarf.png-b0e8db317ffed3ec03b3a386c9e30239.ctex"]
+source_file="res://Assets/icons/inventory/scarf.png"
+dest_files=["res://.godot/imported/scarf.png-ebed16680dea5d25581284f4da0bcd9d.ctex"]
 
 [params]
 

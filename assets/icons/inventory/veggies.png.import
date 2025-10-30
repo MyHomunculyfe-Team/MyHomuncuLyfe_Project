@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y34vtmepymc3"
-path="res://.godot/imported/veggies.png-5640d004a3e96b2f4fbdfb11f8988781.ctex"
+path="res://.godot/imported/veggies.png-6306ca66bbd1370c1529febfafb6e654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/veggies.png"
-dest_files=["res://.godot/imported/veggies.png-5640d004a3e96b2f4fbdfb11f8988781.ctex"]
+source_file="res://Assets/icons/inventory/veggies.png"
+dest_files=["res://.godot/imported/veggies.png-6306ca66bbd1370c1529febfafb6e654.ctex"]
 
 [params]
 

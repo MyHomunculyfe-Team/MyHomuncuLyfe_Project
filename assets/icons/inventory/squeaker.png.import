@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e6awxw70yo7d"
-path="res://.godot/imported/squeaker.png-dc14faa7d6556b6e2f294f583d583862.ctex"
+path="res://.godot/imported/squeaker.png-d7bbfde8e56ac57f618471845ba480bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/squeaker.png"
-dest_files=["res://.godot/imported/squeaker.png-dc14faa7d6556b6e2f294f583d583862.ctex"]
+source_file="res://Assets/icons/inventory/squeaker.png"
+dest_files=["res://.godot/imported/squeaker.png-d7bbfde8e56ac57f618471845ba480bb.ctex"]
 
 [params]
 

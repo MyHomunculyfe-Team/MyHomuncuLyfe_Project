@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4iqfhtwnu0k1"
-path="res://.godot/imported/chicken.png-69b3009c3eb96c57954faaa4b3aaf91f.ctex"
+path="res://.godot/imported/chicken.png-b45a9624c0adb5c1f8f9a60cc85dcfb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/chicken.png"
-dest_files=["res://.godot/imported/chicken.png-69b3009c3eb96c57954faaa4b3aaf91f.ctex"]
+source_file="res://Assets/icons/inventory/chicken.png"
+dest_files=["res://.godot/imported/chicken.png-b45a9624c0adb5c1f8f9a60cc85dcfb4.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnvinlbfe51g7"
-path="res://.godot/imported/lotion.png-86e90388afd1701b268118733f5256a4.ctex"
+path="res://.godot/imported/lotion.png-252be8172210ef3ec7aca8cd78dc1ac6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/lotion.png"
-dest_files=["res://.godot/imported/lotion.png-86e90388afd1701b268118733f5256a4.ctex"]
+source_file="res://Assets/icons/inventory/lotion.png"
+dest_files=["res://.godot/imported/lotion.png-252be8172210ef3ec7aca8cd78dc1ac6.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cixeygvq0qxl"
-path="res://.godot/imported/unselect_cat_box.png-d75ad0c75d1ef1ce8dd732f675e6853d.ctex"
+path="res://.godot/imported/unselect_cat_box.png-426e663e82d021f1191eb2fd24b8770e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/unselect_cat_box.png"
-dest_files=["res://.godot/imported/unselect_cat_box.png-d75ad0c75d1ef1ce8dd732f675e6853d.ctex"]
+source_file="res://Assets/icons/inventory/unselect_cat_box.png"
+dest_files=["res://.godot/imported/unselect_cat_box.png-426e663e82d021f1191eb2fd24b8770e.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxttjugdnaff1"
-path="res://.godot/imported/BackHover.png-fd7db187a646b6adba0c12d87a217f6a.ctex"
+path="res://.godot/imported/BackHover.png-f229d87492f061fca7f4c614d1bdf198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BackHover.png"
-dest_files=["res://.godot/imported/BackHover.png-fd7db187a646b6adba0c12d87a217f6a.ctex"]
+source_file="res://Assets/BackHover.png"
+dest_files=["res://.godot/imported/BackHover.png-f229d87492f061fca7f4c614d1bdf198.ctex"]
 
 [params]
 

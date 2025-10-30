@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg4po7h0p4ofh"
-path="res://.godot/imported/comb.png-50826a8bcc18bf5d34764b3123a472af.ctex"
+path="res://.godot/imported/comb.png-a9154ea7247888766a171695b784a866.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/inventory/comb.png"
-dest_files=["res://.godot/imported/comb.png-50826a8bcc18bf5d34764b3123a472af.ctex"]
+source_file="res://Assets/icons/inventory/comb.png"
+dest_files=["res://.godot/imported/comb.png-a9154ea7247888766a171695b784a866.ctex"]
 
 [params]
 
