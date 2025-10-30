@@ -1,5 +1,5 @@
 # Pet.gd (Godot 4)
-extends AnimatedSprite2D
+extends Node2D
 
 @export var speed_px_per_sec: float = 140.0
 @export var pause_range: Vector2 = Vector2(0.6, 1.6)
@@ -10,13 +10,15 @@ extends AnimatedSprite2D
 @export var bob_speed: float = 2.6
 @export var start_delay: float = 5.0   # <- wait this long before first movement
 
+var animated_sprite: AnimatedSprite2D
 var _target: Vector2
 var _waiting := false
 var _bob_t := 0.0
 
 func _ready() -> void:
 	randomize()
-	play("Walk")  # your one-frame anim
+	animated_sprite = $Pet
+	animated_sprite.play("Walk")  # your one-frame anim
 	# initial delay before the first wander
 	_waiting = true
 	await get_tree().create_timer(max(0.0, start_delay)).timeout
@@ -26,7 +28,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# subtle idle bobbing even while waiting
 	_bob_t += delta
-	offset.y = sin(_bob_t * bob_speed) * bob_amplitude
 
 	if _waiting:
 		return
@@ -43,7 +44,6 @@ func _process(delta: float) -> void:
 		step = to_vec
 	global_position += step
 
-	flip_h = _target.x < global_position.x
 
 func _pick_new_target() -> void:
 	var viewport_size := get_viewport_rect().size
@@ -57,3 +57,4 @@ func _wait_then_move_again() -> void:
 	await get_tree().create_timer(t).timeout
 	_waiting = false
 	_pick_new_target()
+	

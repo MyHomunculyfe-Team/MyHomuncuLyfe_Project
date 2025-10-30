@@ -68,13 +68,7 @@ func _dbg_items_gui_input(e: InputEvent) -> void:
 
 # Click anywhere: tell me which Control is on top at mouse
 func _unhandled_input(e: InputEvent) -> void:
-	if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
-		var mp := get_viewport().get_mouse_position()
-		var top: Control = get_viewport().gui_pick(mp)
-		if top:
-			print("[PICK] at ", mp, " -> ", top.name, " path=", top.get_path())
-		else:
-			print("[PICK] at ", mp, " -> no Control")
+	pass
 
 # Update UI from Game (safe-guards)
 func _refresh_stats() -> void:
