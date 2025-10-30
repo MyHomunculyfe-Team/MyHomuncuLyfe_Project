@@ -1,20 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnlclgwcapbvx"]
+[gd_scene load_steps=14 format=3 uid="uid://bqpxb8j7p8bm2"]
 
-[ext_resource type="Texture2D" uid="uid://dkum5w7f2sies" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
-[ext_resource type="Script" uid="uid://bb4ddjyurf4pa" path="res://scripts/careselector.gd" id="1_u4n15"]
-[ext_resource type="Texture2D" uid="uid://bvbuxl4qox0eg" path="res://assets/icons/Group 14.png" id="2_u4n15"]
-[ext_resource type="Texture2D" uid="uid://ct7v2loji3gx8" path="res://assets/icons/Group 16.png" id="3_16hxn"]
-[ext_resource type="Texture2D" uid="uid://dt8jes0wo3tnd" path="res://assets/icons/Group 15.png" id="4_igj00"]
-[ext_resource type="Texture2D" uid="uid://btko1pmu4lmyg" path="res://assets/icons/Group 19.png" id="5_du1i2"]
-[ext_resource type="Texture2D" uid="uid://cciwuk1b0qrka" path="res://assets/icons/PLAY.png" id="6_75sxh"]
-[ext_resource type="Texture2D" uid="uid://clq7ln4wejax3" path="res://assets/icons/Back.png" id="7_oya68"]
-[ext_resource type="Texture2D" uid="uid://dusqxyw4me0bm" path="res://assets/icons/settings.png" id="8_fxaq4"]
+[ext_resource type="Texture2D" uid="uid://dntvpwt4p36p3" path="res://assets/icons/JobSelection 1.png" id="1_6inym"]
+[ext_resource type="Script" path="res://scripts/careselector.gd" id="1_u4n15"]
+[ext_resource type="Texture2D" uid="uid://dydxxdqn25ume" path="res://assets/icons/Group 14.png" id="2_u4n15"]
+[ext_resource type="Texture2D" uid="uid://cd36iapapg187" path="res://assets/icons/Group 16.png" id="3_16hxn"]
+[ext_resource type="Texture2D" uid="uid://worbbnpcxk47" path="res://assets/icons/Group 15.png" id="4_igj00"]
+[ext_resource type="Texture2D" uid="uid://dr401sy6lmtoc" path="res://assets/icons/Group 19.png" id="5_du1i2"]
+[ext_resource type="Texture2D" uid="uid://pxks6o14eaps" path="res://assets/icons/PLAY.png" id="6_75sxh"]
+[ext_resource type="Texture2D" uid="uid://c5qlsmq327ov" path="res://assets/icons/Back.png" id="7_oya68"]
+[ext_resource type="Texture2D" uid="uid://djfg2k48qoode" path="res://assets/icons/settings.png" id="8_fxaq4"]
+[ext_resource type="FontFile" uid="uid://cpesudq02ij6l" path="res://assets/fonts/Montserrat-BlackItalic.ttf" id="10_16hxn"]
 
 [sub_resource type="Theme" id="Theme_8nyr6"]
 
 [sub_resource type="SystemFont" id="SystemFont_onchd"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igj00"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u4n15")
@@ -183,6 +186,49 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("8_fxaq4")
+
+[node name="InventoryBtn" type="Button" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_16hxn")
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+
+[node name="Dimmer" type="ColorRect" parent="UI"]
+offset_left = -26.0
+offset_top = 107.0
+offset_right = 362.0
+offset_bottom = 304.0
+color = Color(0.008, 0.008, 0.008, 0.4)
+
+[node name="InventoryPopup" type="PopupPanel" parent="UI"]
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_igj00")
+
+[node name="Dimmer" type="ColorRect" parent="UI/InventoryPopup"]
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="PopupPanelBG" type="TextureRect" parent="UI/InventoryPopup"]
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="CareButton" type="Button" parent="UI/InventoryPopup/PopupPanelBG"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="FoodButton" type="Button" parent="UI/InventoryPopup/PopupPanelBG"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="GridContainer" type="GridContainer" parent="UI/InventoryPopup/PopupPanelBG"]
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="CloseButton" type="Button" parent="UI/InventoryPopup"]
+offset_right = 100.0
+offset_bottom = 100.0
 
 [connection signal="pressed" from="UI/TopBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/TopBar/SettingsButton" to="." method="_on_settings_button_pressed"]
