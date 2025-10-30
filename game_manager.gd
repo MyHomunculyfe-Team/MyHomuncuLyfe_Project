@@ -84,6 +84,7 @@ func _play_next():
 	if current_index >= minigame_queue.size():
 		if get_tree():
 			get_tree().change_scene_to_file("res://scenes/Main.tscn")
+			minigame_queue.clear()
 		return
 
 	var name = minigame_queue[current_index]

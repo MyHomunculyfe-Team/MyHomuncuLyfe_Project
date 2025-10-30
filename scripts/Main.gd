@@ -41,16 +41,7 @@ func _ready() -> void:
 	if bg_gradient: bg_gradient.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if bg_pattern:  bg_pattern.mouse_filter  = Control.MOUSE_FILTER_IGNORE
 	if buttons_wrap: buttons_wrap.mouse_filter = Control.MOUSE_FILTER_PASS
-	# Ensure Items button is clickable + connected
-	if btn_items:
-		_ensure_clickable_button(btn_items)
-		if not btn_items.pressed.is_connected(_on_btn_items_pressed):
-			btn_items.pressed.connect(_on_btn_items_pressed)
-		if not btn_items.gui_input.is_connected(_dbg_items_gui_input):
-			btn_items.gui_input.connect(_dbg_items_gui_input)
-	else:
-		push_error("[Main] Btn_Items NOT found at: %s" % P_BTN_ITEMS)
-		
+	
 	GameManager.deformity_warning.connect(_on_deformity_warning)
 	GameManager.stats_changed.connect(_on_stats_changed)
 	
@@ -78,10 +69,6 @@ func _ensure_clickable_button(b: BaseButton) -> void:
 		if c is Control:
 			(c as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	print("[Btn_Items] size=", b.size, " global_rect=", b.get_global_rect())
-
-# Debug: see any GUI events that reach the button
-func _dbg_items_gui_input(e: InputEvent) -> void:
-	print("[Btn_Items] gui_input: ", e)
 
 # Click anywhere: tell me which Control is on top at mouse
 func _unhandled_input(e: InputEvent) -> void:
