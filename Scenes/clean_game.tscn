@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://fqi7n77odyi"]
 
 [ext_resource type="PackedScene" uid="uid://exo60jai5r8k" path="res://Scenes/homunc.tscn" id="1_6u8r2"]
-[ext_resource type="Script" uid="uid://ciwc6t722q21y" path="res://Scripts/game_manager.gd" id="1_15wn4"]
-[ext_resource type="Texture2D" uid="uid://cjurrn0lwolg7" path="res://Assets/platforms.png" id="2_6gq80"]
-[ext_resource type="FontFile" uid="uid://v2tpoash5e0o" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_qvkt2"]
+[ext_resource type="Script" uid="uid://badgi84c03a0b" path="res://Scripts/hygiene_manager.gd" id="1_15wn4"]
+[ext_resource type="Texture2D" uid="uid://cjurrn0lwolg7" path="res://assets/platforms.png" id="2_6gq80"]
+[ext_resource type="FontFile" uid="uid://v2tpoash5e0o" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_qvkt2"]
 [ext_resource type="PackedScene" uid="uid://ux0mlc2lci42" path="res://Scenes/pool.tscn" id="3_tfnhl"]
 [ext_resource type="PackedScene" uid="uid://b2x2d4suhrs6c" path="res://Scenes/killzone.tscn" id="4_nfgv1"]
 [ext_resource type="PackedScene" uid="uid://c11ukfkieut25" path="res://Scenes/pointgain.tscn" id="5_1j4pg"]
